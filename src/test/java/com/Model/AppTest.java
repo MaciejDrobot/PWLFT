@@ -1,4 +1,4 @@
-package com.md;
+package com.Model;
 
 import static org.junit.Assert.assertTrue;
 
