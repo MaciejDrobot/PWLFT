@@ -37,6 +37,12 @@ public class SessionStats {
         return (volume / totalReps);
     }
 
+    public double calculateIntensityShort(double volume, int reps){
+        return volume / reps;
+    }
+
+    //ToDO Optimaze for Hibernate - final formatting
+
     public String getTopSet(List<TrainingSet> setsRecord) {
         List<TrainingSet> sortedList = setsRecord.stream()
                 .sorted((s1, s2) -> (int) (s1.getLoad() - s2.getLoad()))
@@ -47,11 +53,32 @@ public class SessionStats {
         return "\"" + topSet.get(topSet.size() - 1) + "\"";
     }
 
+    //Used to save sets record in CSV, may become redundant
     public static String trainingSetToString(List<TrainingSet> list) {
         List<String> record = list.stream()
                 .map(x -> String.valueOf((int) x.getRep()) + " x " + String.valueOf(x.getLoad()))
                 .collect(Collectors.toList());
         return "\"" + record.toString() + "\"";
+    }
+
+    //Main method - used for saving record in database and for printing
+    public static String recordToStringToPrint(List<TrainingSet> list) {
+        String rs = "";
+        for (TrainingSet set : list) {
+            rs = rs + set.getRep() + " x " + set.getLoad() + ", ";
+        }
+        return rs.substring(0, rs.length() - 2);
+
+    }
+
+    //Another version, may become redundant
+    public static String recordToString(List<TrainingSet> list) {
+        String rs = "";
+        for (TrainingSet set : list) {
+            rs = rs + "," + set.toString();
+            rs.substring(1);
+        }
+        return rs;
     }
 
 
