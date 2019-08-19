@@ -11,12 +11,14 @@ import java.util.List;
 public class Excercise extends SessionStats {
 
     @Id
-    @GeneratedValue
-    private int id;
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "session_id")
-    private TrainingSession session;
+    private TrainingSession trainingSession;
+
 
     @Column(name = "name")
     private String name;
@@ -128,15 +130,16 @@ public class Excercise extends SessionStats {
         this.topSet = topSet;
     }
 
-    public TrainingSession getSession() {
-        return session;
+    public TrainingSession getTrainingSession() {
+        return trainingSession;
     }
 
-    public void setSession(TrainingSession session) {
-        this.session = session;
+    public void setTrainingSession(TrainingSession trainingSession) {
+        this.trainingSession = trainingSession;
     }
-
-
 }
+
+
+
 
 

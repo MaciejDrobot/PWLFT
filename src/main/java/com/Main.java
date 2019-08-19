@@ -37,7 +37,7 @@ public class Main {
         ex1.setRepetitionMark("x 5");
 
         TrainingSet set1 = new TrainingSet(5,85); ex1.getSetsRecord().add(set1);
-        TrainingSet set2 = new TrainingSet(5,90); ex1.getSetsRecord().add(set2);
+        TrainingSet set2 = new TrainingSet(5,100); ex1.getSetsRecord().add(set2);
         TrainingSet set3 = new TrainingSet(5,85); ex1.getSetsRecord().add(set3);
 
         ex1.setOneRM(ex1.calculateOneRM(ex1.getSetsRecord()));
@@ -47,12 +47,27 @@ public class Main {
         ex1.setTopSet(ex1.getTopSet());
         ex1.setSetsRecordAsString(ex1.recordToStringToPrint(ex1.getSetsRecord()));
 
-        session = new TrainingSession("18/08/2019", ex1);
 
+        ex2.setName("Squat");
+        ex2.setLiftMark("Primary");
+        ex2.setRepetitionMark("x 3");
+        TrainingSet set4 = new TrainingSet(10,100); ex2.getSetsRecord().add(set4);
+
+
+
+
+        session.setDate("20.08.2019");
+        session.getExcerciseList().add(ex1);
+        session.getExcerciseList().add(ex2);
+        ex1.setTrainingSession(session);
+        ex2.setTrainingSession(session);
+
+
+        entityManager.persist(ex1);
+        entityManager.persist(ex2);
         entityManager.persist(session);
-        //entityManager.persist(ex1);
-        tx.commit();
 
+        tx.commit();
         entityManager.close();
         entityManagerFactory.close();
 
