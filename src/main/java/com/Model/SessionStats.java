@@ -50,7 +50,7 @@ public class SessionStats {
         List<String> topSet = sortedList.stream()
                 .map(x -> String.valueOf((int) x.getRep()) + " x " + String.valueOf(x.getLoad()))
                 .collect(Collectors.toList());
-        return "\"" + topSet.get(topSet.size() - 1) + "\"";
+        return topSet.get(topSet.size() - 1);
     }
 
     //Used to save sets record in CSV, may become redundant

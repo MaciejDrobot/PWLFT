@@ -1,11 +1,15 @@
 package com.Model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 
 @Entity
+@NamedQuery(name = "findByDate",query = "From TrainingSession D where D.date = :name_param")
 @Table(name = "training_session")
 public class TrainingSession {
 
@@ -18,41 +22,12 @@ public class TrainingSession {
     @Column(name = "date")
     private String date;
 
-
-
     @OneToMany(mappedBy = "trainingSession")
     private List<Excercise> excerciseList = new ArrayList<>();
-
 
     public TrainingSession() {
 
     }
 
-    public String getDate() {
-        return date;
-    }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public void addExcercise(Excercise ex) {
-        this.excerciseList.add(ex);
-    }
-
-    public List<Excercise> getExcerciseList() {
-        return excerciseList;
-    }
-
-    public long getSessioniId() {
-        return sessioniId;
-    }
-
-    public void setSessioniId(long sessioniId) {
-        this.sessioniId = sessioniId;
-    }
-
-    public void setExcerciseList(List<Excercise> excerciseList) {
-        this.excerciseList = excerciseList;
-    }
 }

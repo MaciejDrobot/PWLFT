@@ -2,10 +2,10 @@ package com.Model;
 
 public class TrainingSet {
 
-    private double rep;
+    private int rep;
     private double load;
 
-    public TrainingSet(double rep, double load) {
+    public TrainingSet(int rep, double load) {
         this.rep = rep;
         this.load = load;
     }
@@ -18,7 +18,7 @@ public class TrainingSet {
         return rep;
     }
 
-    public void setRep(double rep){
+    public void setRep(int rep){
         this.rep = rep;
     }
 
