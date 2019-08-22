@@ -44,7 +44,9 @@ public class Main {
         ex1.setTotalReps(ex1.calculateTotalReps(ex1.getSetsRecord()));
         ex1.setIntensity(ex1.calculateIntensityShort(ex1.getVolume(), ex1.getTotalReps()));
         ex1.setTopSet(ex1.getTopSet(ex1.getSetsRecord()));
-        ex1.setSetsRecordAsString(ex1.recordToStringToPrint(ex1.getSetsRecord()));
+        ex1.setSetsRecordAsString(ex1.recordToString(ex1.getSetsRecord()));
+
+        System.out.println(ex1.toString());
 
 
         ex2.setName("Squat");
@@ -53,8 +55,7 @@ public class Main {
         TrainingSet e2set2 = new TrainingSet(10,100); ex2.getSetsRecord().add(e2set2);
         TrainingSet e2set3 = new TrainingSet(10,100); ex2.getSetsRecord().add(e2set3);
         TrainingSet e2set4 = new TrainingSet(10,100); ex2.getSetsRecord().add(e2set4);
-        ex2.setSetsRecordAsString(ex2.recordToStringToPrint(ex2.getSetsRecord()));
-
+        ex2.setSetsRecordAsString(ex2.recordToString(ex2.getSetsRecord()));
 
 
 
@@ -75,7 +76,6 @@ public class Main {
         query.setParameter("name_param", "22.08.2019");
         TrainingSession sessionQ = query.getSingleResult();
 
-
         printTrainingSession(sessionQ);
 
 
@@ -89,6 +89,7 @@ public class Main {
 
     }
 
+    //Testing query, may be removed
     public static void printTrainingSession(TrainingSession session){
         List<Excercise> listOfExcecises = session.getExcerciseList();
         for (Excercise e : listOfExcecises) {

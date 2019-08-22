@@ -30,3 +30,5 @@ hs_err_pid*
 src/resources/
 target/generated-sources/
 target/generated-test-sources/
+target/classes/META-INF/PWLFT.kotlin_module
+target/classes/config.fxml

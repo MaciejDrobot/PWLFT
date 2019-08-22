@@ -1,5 +1,6 @@
 package com.Model;
 
+
 public class TrainingSet {
 
     private int rep;
@@ -28,5 +29,10 @@ public class TrainingSet {
 
     public void setLoad(double load) {
         this.load = load;
+    }
+
+    @Override
+    public String toString() {
+        return "set[" + rep + " x " + load + "]";
     }
 }

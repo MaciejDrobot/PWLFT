@@ -54,13 +54,21 @@ public class Excercise extends SessionStats {
     private String topSet;
 
 
-
-
-
-
-
-
-
+    @Override
+    public String toString() {
+        return "Excercise{" +
+                "name='" + name + '\'' +
+                ", liftMark='" + liftMark + '\'' +
+                ", repetitionMark='" + repetitionMark + '\'' +
+                ", setsRecord=" + setsRecord +
+                ", setsRecordAsString='" + setsRecordAsString + '\'' +
+                ", oneRM=" + oneRM +
+                ", volume=" + volume +
+                ", intensity=" + intensity +
+                ", totalReps=" + totalReps +
+                ", topSet='" + topSet + '\'' +
+                '}';
+    }
 }
 
 
