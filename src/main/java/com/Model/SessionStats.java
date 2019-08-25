@@ -54,10 +54,18 @@ public class SessionStats {
     public static String recordToString(List<TrainingSet> list) {
         String rs = "";
         for (TrainingSet set : list) {
-            rs = rs + (int)set.getRep() + " x " + set.getLoad() + ", ";
+            rs = rs + (int)set.getRep() + " x " + set.getLoad() + ",  ";
         }
-        return rs.substring(0, rs.length() - 2);
+        return rs.substring(0, rs.length() - 3);
+    }
 
+    public static void addSessionStats(Excercise ex) {
+        ex.setOneRM(ex.calculateOneRM(ex.getSetsRecord()));
+        ex.setVolume(ex.calculateVolume(ex.getSetsRecord()));
+        ex.setTotalReps(ex.calculateTotalReps(ex.getSetsRecord()));
+        ex.setIntensity(ex.calculateIntensityShort(ex.getVolume(), ex.getTotalReps()));
+        ex.setTopSet(ex.getTopSet(ex.getSetsRecord()));
+        ex.setSetsRecordAsString(ex.recordToString(ex.getSetsRecord()));
     }
 
 }

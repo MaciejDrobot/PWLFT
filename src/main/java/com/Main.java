@@ -39,12 +39,7 @@ public class Main {
         TrainingSet e1set3 = new TrainingSet(5,85); ex1.getSetsRecord().add(e1set3);
         TrainingSet e1set4 = new TrainingSet(5,85); ex1.getSetsRecord().add(e1set4);
 
-        ex1.setOneRM(ex1.calculateOneRM(ex1.getSetsRecord()));
-        ex1.setVolume(ex1.calculateVolume(ex1.getSetsRecord()));
-        ex1.setTotalReps(ex1.calculateTotalReps(ex1.getSetsRecord()));
-        ex1.setIntensity(ex1.calculateIntensityShort(ex1.getVolume(), ex1.getTotalReps()));
-        ex1.setTopSet(ex1.getTopSet(ex1.getSetsRecord()));
-        ex1.setSetsRecordAsString(ex1.recordToString(ex1.getSetsRecord()));
+        addSessionStats();
 
         System.out.println(ex1.toString());
 
@@ -87,6 +82,15 @@ public class Main {
         System.exit(0);
 
 
+    }
+
+    private static void addSessionStats() {
+        ex1.setOneRM(ex1.calculateOneRM(ex1.getSetsRecord()));
+        ex1.setVolume(ex1.calculateVolume(ex1.getSetsRecord()));
+        ex1.setTotalReps(ex1.calculateTotalReps(ex1.getSetsRecord()));
+        ex1.setIntensity(ex1.calculateIntensityShort(ex1.getVolume(), ex1.getTotalReps()));
+        ex1.setTopSet(ex1.getTopSet(ex1.getSetsRecord()));
+        ex1.setSetsRecordAsString(ex1.recordToString(ex1.getSetsRecord()));
     }
 
     //Testing query, may be removed
