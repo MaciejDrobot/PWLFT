@@ -5,7 +5,6 @@ import com.Model.TrainingSession;
 import com.Model.TrainingSet;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -47,15 +46,17 @@ public class Controller {
         TrainingSet set = new TrainingSet(reps, load);
         ex1.getSetsRecord().add(set);
         e1Sets.setText(ex1.recordToString(ex1.getSetsRecord()));
+        removeSetE1.setDisable(false);
     }
 
-    //todo rework removing of the last item
     public void removeSetE1() {
-        if (ex1.getSetsRecord().isEmpty() == true) {
-            e1Sets.setText("");
-        } else {
+        if (ex1.getSetsRecord().size() > 1) {
             ex1.getSetsRecord().remove((ex1.getSetsRecord().size() - 1));
             e1Sets.setText(ex1.recordToString(ex1.getSetsRecord()));
+        } else {
+            ex1.getSetsRecord().remove(0);
+            e1Sets.setText("");
+            removeSetE1.setDisable(true);
         }
     }
 
@@ -65,20 +66,23 @@ public class Controller {
         TrainingSet set = new TrainingSet(reps, load);
         ex2.getSetsRecord().add(set);
         e2Sets.setText(ex1.recordToString(ex2.getSetsRecord()));
+        removeSetE2.setDisable(false);
     }
 
-    //todo rework removing of the last item
     public void removeSetE2() {
-        if (ex2.getSetsRecord().isEmpty() == true) {
-            e2Sets.setText("");
-        } else {
+        if (ex2.getSetsRecord().size() > 1) {
             ex2.getSetsRecord().remove((ex2.getSetsRecord().size() - 1));
-            e2Sets.setText(ex1.recordToString(ex2.getSetsRecord()));
+            e2Sets.setText(ex2.recordToString(ex2.getSetsRecord()));
+        } else {
+            ex2.getSetsRecord().remove(0);
+            e2Sets.setText("");
+            removeSetE2.setDisable(true);
+
         }
     }
 
     //todo simplify method
-    public void saveSession(){
+    public void saveSession() {
         EntityManagerFactory entityManagerFactory
                 = Persistence.createEntityManagerFactory("PWLFT");
 
@@ -117,9 +121,6 @@ public class Controller {
         System.exit(0);
 
     }
-
-
-
 
 
 }

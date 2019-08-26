@@ -1,6 +1,8 @@
 package com.Model;
 
+import lombok.Data;
 
+@Data
 public class TrainingSet {
 
     private int rep;
@@ -13,22 +15,6 @@ public class TrainingSet {
 
     public TrainingSet(){
 
-    }
-
-    public double getRep(){
-        return rep;
-    }
-
-    public void setRep(int rep){
-        this.rep = rep;
-    }
-
-    public double getLoad() {
-        return load;
-    }
-
-    public void setLoad(double load) {
-        this.load = load;
     }
 
     @Override

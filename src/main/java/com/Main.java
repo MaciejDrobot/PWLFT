@@ -67,6 +67,8 @@ public class Main {
 
         //printTrainingSession(session);
 
+        //@NamedQuery(name = "findByDate",query = "From TrainingSession D where D.date = :name_param")
+
         TypedQuery<TrainingSession> query = entityManager.createNamedQuery("findByDate",TrainingSession.class);
         query.setParameter("name_param", "22.08.2019");
         TrainingSession sessionQ = query.getSingleResult();
@@ -88,7 +90,7 @@ public class Main {
         ex1.setOneRM(ex1.calculateOneRM(ex1.getSetsRecord()));
         ex1.setVolume(ex1.calculateVolume(ex1.getSetsRecord()));
         ex1.setTotalReps(ex1.calculateTotalReps(ex1.getSetsRecord()));
-        ex1.setIntensity(ex1.calculateIntensityShort(ex1.getVolume(), ex1.getTotalReps()));
+        ex1.setIntensity(ex1.calculateIntensity(ex1.getVolume(), ex1.getTotalReps()));
         ex1.setTopSet(ex1.getTopSet(ex1.getSetsRecord()));
         ex1.setSetsRecordAsString(ex1.recordToString(ex1.getSetsRecord()));
     }

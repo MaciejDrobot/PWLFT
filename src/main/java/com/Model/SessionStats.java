@@ -27,17 +27,17 @@ public class SessionStats {
         return totalReps;
     }
 
-    public double calculateIntensity(List<TrainingSet> setsRecord) {
-        Double totalReps = setsRecord.stream()
-                .map(x -> x.getRep())
-                .reduce(0.0, Double::sum);
-        Double volume = setsRecord.stream()
-                .map(x -> x.getRep() * x.getLoad())
-                .reduce(0.0, (a, b) -> a + b);
-        return (volume / totalReps);
-    }
+//    public double calculateIntensity(List<TrainingSet> setsRecord) {
+//        Double totalReps = setsRecord.stream()
+//                .map(x -> x.getRep())
+//                .reduce(0.0, Double::sum);
+//        Double volume = setsRecord.stream()
+//                .map(x -> x.getRep() * x.getLoad())
+//                .reduce(0.0, (a, b) -> a + b);
+//        return (volume / totalReps);
+//    }
 
-    public double calculateIntensityShort(double volume, int reps){
+    public double calculateIntensity(double volume, int reps){
         return volume / reps;
     }
 
@@ -63,7 +63,7 @@ public class SessionStats {
         ex.setOneRM(ex.calculateOneRM(ex.getSetsRecord()));
         ex.setVolume(ex.calculateVolume(ex.getSetsRecord()));
         ex.setTotalReps(ex.calculateTotalReps(ex.getSetsRecord()));
-        ex.setIntensity(ex.calculateIntensityShort(ex.getVolume(), ex.getTotalReps()));
+        ex.setIntensity(ex.calculateIntensity(ex.getVolume(), ex.getTotalReps()));
         ex.setTopSet(ex.getTopSet(ex.getSetsRecord()));
         ex.setSetsRecordAsString(ex.recordToString(ex.getSetsRecord()));
     }
