@@ -4,6 +4,7 @@ import com.Model.Excercise;
 import com.Model.TrainingSession;
 import com.Model.TrainingSet;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,12 +13,11 @@ import javax.persistence.Persistence;
 
 public class Controller {
 
-
     private TrainingSession session = new TrainingSession();
     private Excercise ex1 = new Excercise();
     private Excercise ex2 = new Excercise();
 
-    public TextField date = new TextField();
+    public DatePicker date = new DatePicker();
 
     public TextField e1Mark = new TextField();
     public TextField e1Name = new TextField();
@@ -77,11 +77,31 @@ public class Controller {
             ex2.getSetsRecord().remove(0);
             e2Sets.setText("");
             removeSetE2.setDisable(true);
-
         }
     }
 
     //todo simplify method
+    public void createSession(){
+
+        ex1.setLiftMark(e1Mark.getText());
+        ex1.setName(e1Name.getText());
+        ex1.setRepetitionMark(e1RepMark.getText());
+        ex1.addSessionStats(ex1);
+
+        ex2.setLiftMark(e2Mark.getText());
+        ex2.setName(e2Name.getText());
+        ex2.setRepetitionMark(e2RepMark.getText());
+        ex2.addSessionStats(ex2);
+
+        session.setDate(date.getValue());
+        session.getExcerciseList().add(ex1);
+        session.getExcerciseList().add(ex2);
+
+        for (Excercise e : session.getExcerciseList()){
+            e.setTrainingSession(session);
+        }
+    }
+
     public void saveSession() {
         EntityManagerFactory entityManagerFactory
                 = Persistence.createEntityManagerFactory("PWLFT");
@@ -94,34 +114,15 @@ public class Controller {
         EntityTransaction tx = entityManager.getTransaction();
         tx.begin();
 
-        ex1.setLiftMark(e1Mark.getText());
-        ex1.setName(e1Name.getText());
-        ex1.setRepetitionMark(e1RepMark.getText());
-        ex1.addSessionStats(ex1);
-
-        ex2.setLiftMark(e2Mark.getText());
-        ex2.setName(e2Name.getText());
-        ex2.setRepetitionMark(e2RepMark.getText());
-        ex2.addSessionStats(ex2);
-
-        session.setDate(date.getText());
-        session.getExcerciseList().add(ex1);
-        session.getExcerciseList().add(ex2);
-
-        ex1.setTrainingSession(session);
-        ex2.setTrainingSession(session);
-
-        entityManager.persist(ex1);
-        entityManager.persist(ex2);
+        createSession();
+        for (Excercise e : session.getExcerciseList()){
+            entityManager.persist(e);
+        }
         entityManager.persist(session);
 
         tx.commit();
         entityManager.close();
         entityManagerFactory.close();
-        System.exit(0);
-
     }
-
-
 }
 

@@ -1,16 +1,14 @@
 package com.Model;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
 
 
 public class ExcerciseQueries {
 
     private static EntityManagerFactory ENTITY_MANAGER_FACTORY =
-            Persistence.createEntityManagerFactory("Excercise");
+            Persistence.createEntityManagerFactory("PWLFT");
 
     private static Excercise excercise;
     private static TrainingSession trainingSession;
@@ -22,6 +20,8 @@ public class ExcerciseQueries {
         try {
             et = em.getTransaction();
             et.begin();
+
+
             Excercise ex = new Excercise();
             //ex.setDate(excercise.getDate());
             //ex.setExcerciseString(excercise.getExcerciseString());
@@ -37,6 +37,7 @@ public class ExcerciseQueries {
             em.close();
         }
     }
+
     public static void addExcerciseAsList(Excercise excercise) {
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction et = null;
@@ -59,26 +60,26 @@ public class ExcerciseQueries {
         }
     }
 
-//    public static void getExcercise(int id) {
-//        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
-//
-//        String query = "SELECT excercise FROM training WHERE excercise.id = :excerciseID";
-//
-//        TypedQuery<TrainingSet> tq = em.createQuery(query, TrainingSet.class);
-//        tq.setParameter("excerciseID", id);
-//        TrainingSet trainingSet = null;
-//        try {
-//            trainingSet = tq.getSingleResult();
-//
-//            System.out.println(cust.getFirstName() + " " + cust.getLastName());
-//
-//        } catch (NoResultException ex) {
-//            ex.printStackTrace();
-//
-//        } finally {
-//            em.close();
-//        }
-//    }
+    public void getTrainingSessions(LocalDate date1, LocalDate date2) {
+        EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
+
+        List<TrainingSession> sessionQ;
+
+        TypedQuery<TrainingSession> query = entityManager.createNamedQuery("findByDates", TrainingSession.class);
+        query.setParameter("firstDate", date1);
+        query.setParameter("secondDate", date2);
+        sessionQ = query.getResultList();
+
+        try {
+            System.out.println(sessionQ.get(3).getExcerciseList().get(1).toString());
+
+        } catch (NoResultException ex) {
+            ex.printStackTrace();
+
+        } finally {
+            entityManager.close();
+        }
+    }
 
 
 }

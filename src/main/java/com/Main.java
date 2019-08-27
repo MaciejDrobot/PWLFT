@@ -43,7 +43,6 @@ public class Main {
 
         System.out.println(ex1.toString());
 
-
         ex2.setName("Squat");
         ex2.setLiftMark("Secondary");
         TrainingSet e2set1 = new TrainingSet(10,100); ex2.getSetsRecord().add(e2set1);
@@ -52,14 +51,11 @@ public class Main {
         TrainingSet e2set4 = new TrainingSet(10,100); ex2.getSetsRecord().add(e2set4);
         ex2.setSetsRecordAsString(ex2.recordToString(ex2.getSetsRecord()));
 
-
-
-        session.setDate("23.08.2019");
+        //session.setDate();
         session.getExcerciseList().add(ex1);
         session.getExcerciseList().add(ex2);
         ex1.setTrainingSession(session);
         ex2.setTrainingSession(session);
-
 
         entityManager.persist(ex1);
         entityManager.persist(ex2);
@@ -75,15 +71,11 @@ public class Main {
 
         printTrainingSession(sessionQ);
 
-
-
         tx.commit();
         entityManager.close();
         entityManagerFactory.close();
 
         System.exit(0);
-
-
     }
 
     private static void addSessionStats() {
