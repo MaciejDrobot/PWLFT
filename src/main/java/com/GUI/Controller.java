@@ -14,7 +14,7 @@ import javax.persistence.Persistence;
 public class Controller {
 
     private TrainingSession session = new TrainingSession();
-    private Excercise ex1 = new Excercise();
+    private static Excercise ex1 = new Excercise();
     private Excercise ex2 = new Excercise();
 
     public DatePicker date = new DatePicker();

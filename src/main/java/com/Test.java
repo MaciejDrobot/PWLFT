@@ -41,11 +41,12 @@ public class Test {
         LocalDate date2 = LocalDate.now();
 
 
-        sessionQ = getPrimaryExcecises("SEC");
+        sessionQ = getPrimaryExcecises("prm");
 
-        List<Excercise> filteredList = filteredExcercises(sessionQ, "Bench");
+        List<Excercise> filteredList = filteredExcercises(sessionQ, "Ben");
 
         //excerciseQueries.getTrainingSessions(date, date2);
+
         List<Excercise> downloadedExcercises = new ArrayList<>();
         for (Excercise e : sessionQ){
             System.out.println(e.getName() + "   " + e.getLiftMark());
@@ -55,18 +56,11 @@ public class Test {
         for (Excercise e : filteredList){
             System.out.println(e.getName());
         }
-
-
-        //System.out.println(filter.filteredExcercises(downloadedExcercises, "Bench"));
-
-
-
+        System.out.println("-----------------------------");
+        System.out.println(filter.filteredExcercises(downloadedExcercises, "Bench"));
 
 
     }
-
-
-
 
     public static void removeLast(Excercise ex) {
         if (ex.getSetsRecord().isEmpty() == false) {
@@ -76,8 +70,4 @@ public class Test {
             System.out.println(ex.getSetsRecord().toString());
         }
     }
-
-
-
-
 }

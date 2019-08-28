@@ -13,10 +13,6 @@ public class TrainingSet {
         this.load = load;
     }
 
-    public TrainingSet(){
-
-    }
-
     @Override
     public String toString() {
         return "set[" + rep + " x " + load + "]";

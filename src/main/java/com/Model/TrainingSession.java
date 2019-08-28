@@ -21,7 +21,6 @@ public class TrainingSession {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long sessioniId;
 
-    //ToDo Change type for date
     @Column(name = "date")
     private LocalDate date;
 
@@ -31,6 +30,5 @@ public class TrainingSession {
     public TrainingSession() {
 
     }
-
 
 }
