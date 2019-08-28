@@ -3,21 +3,24 @@ package com.Model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 
 @Entity
+@NamedQuery(name = "primaryExcercises",query = "FROM Excercise E WHERE E.liftMark = :liftMark")
 @Table(name = "excercise")
-
-
 public class Excercise extends SessionStats {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @Column(name = "date")
+    private LocalDate date;
 
     @ManyToOne
     @JoinColumn(name = "session_id")

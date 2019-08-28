@@ -1,19 +1,30 @@
 package com;
 
 import com.Model.Excercise;
-import com.Model.ExcerciseQueries;
+import com.Utils.ExcerciseQueries;
+import com.Utils.ResultFilters;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.Utils.ExcerciseQueries.getPrimaryExcecises;
+import static com.Utils.ResultFilters.filteredExcercises;
 
 public class Test {
+
+    public static List<Excercise> sessionQ;
 
 
 
     public static void main(String[] args) {
 
         ExcerciseQueries excerciseQueries = new ExcerciseQueries();
+        ResultFilters filter = new ResultFilters();
 
         Excercise ex1 = new Excercise();
+
+
 
 //        TrainingSet e1set1 = new TrainingSet(5,85); ex1.getSetsRecord().add(e1set1);
 //        TrainingSet e1set2 = new TrainingSet(5,90); ex1.getSetsRecord().add(e1set2);
@@ -29,7 +40,27 @@ public class Test {
         LocalDate date = LocalDate.now().minusDays(1);
         LocalDate date2 = LocalDate.now();
 
-        excerciseQueries.getTrainingSessions(date, date2);
+
+        sessionQ = getPrimaryExcecises("SEC");
+
+        List<Excercise> filteredList = filteredExcercises(sessionQ, "Bench");
+
+        //excerciseQueries.getTrainingSessions(date, date2);
+        List<Excercise> downloadedExcercises = new ArrayList<>();
+        for (Excercise e : sessionQ){
+            System.out.println(e.getName() + "   " + e.getLiftMark());
+            downloadedExcercises.add(e);
+        }
+        System.out.println("-----------------------------");
+        for (Excercise e : filteredList){
+            System.out.println(e.getName());
+        }
+
+
+        //System.out.println(filter.filteredExcercises(downloadedExcercises, "Bench"));
+
+
+
 
 
     }

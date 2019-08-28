@@ -86,18 +86,19 @@ public class Controller {
         ex1.setLiftMark(e1Mark.getText());
         ex1.setName(e1Name.getText());
         ex1.setRepetitionMark(e1RepMark.getText());
-        ex1.addSessionStats(ex1);
+        ex1.addSessionStats(ex1, ex1.getSetsRecord());
 
         ex2.setLiftMark(e2Mark.getText());
         ex2.setName(e2Name.getText());
         ex2.setRepetitionMark(e2RepMark.getText());
-        ex2.addSessionStats(ex2);
+        ex2.addSessionStats(ex2, ex2.getSetsRecord());
 
         session.setDate(date.getValue());
         session.getExcerciseList().add(ex1);
         session.getExcerciseList().add(ex2);
 
         for (Excercise e : session.getExcerciseList()){
+            e.setDate(date.getValue());
             e.setTrainingSession(session);
         }
     }

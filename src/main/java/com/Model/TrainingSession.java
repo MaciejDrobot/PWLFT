@@ -10,8 +10,8 @@ import java.util.List;
 @Data
 
 @Entity
-@NamedQuery(name = "singleSession",query = "From TrainingSession T where T.date = :singleDate")
-@NamedQuery(name = "betweenDates",query = "FROM TrainingSession T where T.date BETWEEN :firstDate AND :secondDate")
+@NamedQuery(name = "singleSession",query = "FROM TrainingSession T WHERE T.date = :singleDate")
+@NamedQuery(name = "betweenDates",query = "FROM TrainingSession T WHERE T.date BETWEEN :firstDate AND :secondDate")
 
 @Table(name = "training_session")
 public class TrainingSession {
