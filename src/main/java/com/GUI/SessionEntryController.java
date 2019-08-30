@@ -3,15 +3,17 @@ package com.GUI;
 import com.Model.Excercise;
 import com.Model.TrainingSession;
 import com.Model.TrainingSet;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class Controller {
+public class SessionEntryController {
 
     private TrainingSession session = new TrainingSession();
     private static Excercise ex1 = new Excercise();

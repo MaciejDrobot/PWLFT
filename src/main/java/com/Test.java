@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.Utils.ExcerciseQueries.getPrimaryExcecises;
+import static com.Utils.ExcerciseQueries.getPrimaryExcercises;
 import static com.Utils.ResultFilters.filteredExcercises;
 
 public class Test {
@@ -41,7 +41,7 @@ public class Test {
         LocalDate date2 = LocalDate.now();
 
 
-        sessionQ = getPrimaryExcecises("prm");
+        sessionQ = getPrimaryExcercises("prm");
 
         List<Excercise> filteredList = filteredExcercises(sessionQ, "Ben");
 

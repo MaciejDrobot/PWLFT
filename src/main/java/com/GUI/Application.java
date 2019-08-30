@@ -9,17 +9,22 @@ import javafx.stage.Stage;
 
 public class Application extends javafx.application.Application {
 
-    public static void main(String[] args) {
-        launch(args);
+    private Parent rootNode;
+
+    public static void main(final String[] args) {
+        javafx.application.Application.launch(args);
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("configFX.fxml"));
-        primaryStage.setTitle("PWLFT Application");
-        primaryStage.setScene(new Scene(root, 800, 600));
-        primaryStage.show();
+    public void init() throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FXML/Main.fxml"));
+        rootNode = fxmlLoader.load();
     }
 
+    @Override
+    public void start(Stage stage) throws Exception {
+        stage.setScene(new Scene(rootNode));
+        stage.show();
+    }
 
 }

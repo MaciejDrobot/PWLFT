@@ -32,11 +32,29 @@ public class ExcerciseQueries {
         }
     }
 
-    public static List<Excercise> getPrimaryExcecises(String mark) {
+    public static List<Excercise> getPrimaryExcercises(String mark) {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         List<Excercise> sessionQ;
         TypedQuery<Excercise> query = entityManager.createNamedQuery("primaryExcercises", Excercise.class);
         query.setParameter("liftMark", mark);
+        sessionQ = query.getResultList();
+        try {
+            return sessionQ;
+        } catch (NoResultException ex) {
+            ex.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+        return sessionQ;
+    }
+
+    public List<Excercise> getPrimaryExcercisesBetweenDates(LocalDate date1, LocalDate date2) {
+        EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
+        List<Excercise> sessionQ;
+        TypedQuery<Excercise> query = entityManager.createNamedQuery("primaryExcercisesBetweenDates", Excercise.class);
+        query.setParameter("liftMark", "PRM");
+        query.setParameter("firstDate", date1);
+        query.setParameter("secondDate", date2);
         sessionQ = query.getResultList();
         try {
             return sessionQ;

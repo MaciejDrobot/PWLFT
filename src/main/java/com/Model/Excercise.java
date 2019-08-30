@@ -11,6 +11,7 @@ import java.util.List;
 
 @Entity
 @NamedQuery(name = "primaryExcercises",query = "FROM Excercise E WHERE E.liftMark = :liftMark")
+@NamedQuery(name = "primaryExcercisesBetweenDates",query = "FROM Excercise E WHERE E.liftMark = :liftMark AND E.date BETWEEN :firstDate AND :secondDate")
 @Table(name = "excercise")
 public class Excercise extends SessionStats {
 
