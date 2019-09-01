@@ -11,6 +11,8 @@ import java.util.List;
 
 @Entity
 @NamedQuery(name = "singleSession",query = "FROM TrainingSession T WHERE T.date = :singleDate")
+
+//todo test this query
 @NamedQuery(name = "betweenDates",query = "FROM TrainingSession T WHERE T.date BETWEEN :firstDate AND :secondDate")
 
 @Table(name = "training_session")

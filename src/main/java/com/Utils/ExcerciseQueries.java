@@ -6,6 +6,7 @@ import com.Model.TrainingSession;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class ExcerciseQueries {
@@ -85,6 +86,13 @@ public class ExcerciseQueries {
         } finally {
             entityManager.close();
         }
+    }
+
+    public List<Excercise> filteredExcercises(List<Excercise> list, String name){
+        List<Excercise> filtered = list.stream()
+                .filter(e -> e.getName().contains(name))
+                .collect(Collectors.toList());
+        return filtered;
     }
 
 
