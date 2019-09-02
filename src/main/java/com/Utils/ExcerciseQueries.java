@@ -67,9 +67,6 @@ public class ExcerciseQueries {
         return sessionQ;
     }
 
-
-
-
     public static void getSingleSession(LocalDate date) {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
 

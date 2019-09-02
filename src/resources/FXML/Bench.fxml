@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="BenchController" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GUI.BenchController">
+   <children>
+      <Button fx:id="printChart" layoutX="613.0" layoutY="47.0" mnemonicParsing="false" onAction="#addDataChart" prefHeight="54.0" prefWidth="159.0" text="Button" />
+      <DatePicker fx:id="firstDate" layoutX="36.0" layoutY="47.0" />
+      <DatePicker fx:id="secondDate" layoutX="222.0" layoutY="47.0" />
+      <LineChart fx:id="benchChart" layoutX="33.0" layoutY="174.0" prefHeight="400.0" prefWidth="735.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yAxis" side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <TextArea fx:id="print" layoutX="78.0" layoutY="101.0" prefHeight="65.0" prefWidth="492.0" />
+      <Button layoutX="467.0" layoutY="35.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="108.0" text="Download" />
+   </children>
+</AnchorPane>
