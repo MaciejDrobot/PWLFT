@@ -6,6 +6,7 @@ import com.Model.TrainingSet;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import javax.persistence.EntityManager;
@@ -16,7 +17,7 @@ import javax.persistence.Persistence;
 public class SessionEntryController {
 
     private TrainingSession session = new TrainingSession();
-    private static Excercise ex1 = new Excercise();
+    private Excercise ex1 = new Excercise();
     private Excercise ex2 = new Excercise();
 
     public DatePicker date = new DatePicker();
@@ -40,6 +41,8 @@ public class SessionEntryController {
     public Button removeSetE2;
 
     public Button save = new Button();
+
+    public TextArea toPrint  = new TextArea();
 
 
     public void addSetE1() {
@@ -100,8 +103,10 @@ public class SessionEntryController {
         session.getExcerciseList().add(ex2);
 
         for (Excercise e : session.getExcerciseList()){
-            e.setDate(date.getValue());
-            e.setTrainingSession(session);
+            if(e.getName() != null) {
+                e.setDate(date.getValue());
+                e.setTrainingSession(session);
+            }
         }
     }
 

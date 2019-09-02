@@ -33,11 +33,11 @@ public class ExcerciseQueries {
         }
     }
 
-    public static List<Excercise> getPrimaryExcercises(String mark) {
+    public static List<Excercise> getPrimaryExcercises() {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         List<Excercise> sessionQ;
         TypedQuery<Excercise> query = entityManager.createNamedQuery("primaryExcercises", Excercise.class);
-        query.setParameter("liftMark", mark);
+        query.setParameter("liftMark", "PRM");
         sessionQ = query.getResultList();
         try {
             return sessionQ;
