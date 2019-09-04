@@ -2,87 +2,35 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="BenchController" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GUI.SessionEntryController">
+<AnchorPane fx:id="BenchController" prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.GUI.SessionEntry.SessionEntryController">
     <children>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="805.0" style="-fx-background-color: white;">
-            <DatePicker fx:id="date" layoutX="30.0" layoutY="125.0" />
+            <DatePicker fx:id="date" layoutX="30.0" layoutY="120.0" />
             <Pane layoutX="8.0" layoutY="165.0" prefHeight="49.0" prefWidth="784.0">
-                <children>
-                    <TextField fx:id="e1Mark" layoutX="24.0" layoutY="12.0" prefHeight="25.0" prefWidth="60.0">
-                        <font>
-                            <Font name="Verdana" size="12.0" />
-                        </font>
-                    </TextField>
-                    <TextField fx:id="e1Name" layoutX="84.0" layoutY="12.0" prefHeight="25.0" prefWidth="115.0">
-                        <font>
-                            <Font name="Verdana" size="12.0" />
-                        </font>
-                    </TextField>
-                    <TextField fx:id="e1RepMark" layoutX="199.0" layoutY="12.0" prefHeight="25.0" prefWidth="33.0">
-                        <font>
-                            <Font name="Verdana" size="12.0" />
-                        </font>
-                    </TextField>
-                    <TextField fx:id="e1Sets" layoutX="232.0" layoutY="12.0" prefHeight="25.0" prefWidth="320.0">
-                        <font>
-                            <Font name="Verdana" size="12.0" />
-                        </font>
-                    </TextField>
-                    <TextField fx:id="e1Reps" layoutX="587.0" layoutY="12.0" prefHeight="25.0" prefWidth="60.0">
-                        <font>
-                            <Font name="Verdana" size="12.0" />
-                        </font>
-                    </TextField>
-                    <TextField fx:id="e1Load" layoutX="647.0" layoutY="12.0" prefHeight="25.0" prefWidth="60.0">
-                        <font>
-                            <Font name="Verdana" size="12.0" />
-                        </font>
-                    </TextField>
-                    <Button fx:id="addSetE1" layoutX="707.0" layoutY="12.0" mnemonicParsing="false" onAction="#addSetE1" prefHeight="25.0" prefWidth="25.0" text="+">
-                        <font>
-                            <Font name="Verdana Bold" size="12.0" />
-                        </font>
-                    </Button>
-                    <Button fx:id="removeSetE1" layoutX="732.0" layoutY="12.0" mnemonicParsing="false" onAction="#removeSetE1" prefHeight="25.0" prefWidth="25.0" text="-">
-                        <font>
-                            <Font name="Verdana Bold" size="12.0" />
-                        </font>
-                    </Button>
-                </children>
+                <fx:include fx:id="pane1" source="EntryPane.fxml" />
             </Pane>
-            <!-- <Pane layoutX="8.0" layoutY="220.0" prefHeight="49.0" prefWidth="784.0">
-                <children>
-                    <TextField fx:id="e2Mark" layoutX="24.0" layoutY="12.0" prefHeight="25.0" prefWidth="60.0" />
-                    <TextField fx:id="e2Name" layoutX="84.0" layoutY="12.0" prefHeight="25.0" prefWidth="115.0" />
-                    <TextField fx:id="e2RepMark" layoutX="199.0" layoutY="12.0" prefHeight="25.0" prefWidth="33.0" />
-                    <TextField fx:id="e2Sets" layoutX="232.0" layoutY="12.0" prefHeight="25.0" prefWidth="320.0" />
-                    <TextField fx:id="e2Reps" layoutX="587.0" layoutY="12.0" prefHeight="25.0" prefWidth="60.0" />
-                    <TextField fx:id="e2Load" layoutX="647.0" layoutY="12.0" prefHeight="25.0" prefWidth="60.0" />
-                    <Button fx:id="addSetE2" layoutX="707.0" layoutY="12.0" mnemonicParsing="false" onAction="#addSetE2" prefHeight="25.0" prefWidth="25.0" text="+" />
-                    <Button fx:id="removeSetE2" layoutX="732.0" layoutY="12.0" mnemonicParsing="false" onAction="#removeSetE2" prefHeight="25.0" prefWidth="25.0" text="-" />
-                </children>
-            </Pane> -->
-            <Pane layoutX="8.0" layoutY="220.0">
-                <fx:include fx:id="pane2" source="EntryPane.fxml" />
-            </Pane>
+            <!--<Pane layoutX="8.0" layoutY="220.0">
+                <fx:include fx:id="pane2" source="EntryPane2.fxml" />
+            </Pane>-->
             <Pane layoutX="8.0" layoutY="275.0">
-                <fx:include fx:id="pane3" source="EntryPane.fxml" />
+                <fx:include fx:id="pane3" source="EntryPane3.fxml" />
             </Pane>
-            <Pane layoutX="8.0" layoutY="325.0">
-                <fx:include fx:id="pane4" source="EntryPane.fxml" />
-            </Pane>
+            <!--<Pane layoutX="8.0" layoutY="325.0">
+                <fx:include fx:id="pane4" source="EntryPane4.fxml" />
+            </Pane>-->
             <Pane layoutX="8.0" layoutY="380.0">
-                <fx:include fx:id="pane5" source="EntryPane.fxml" />
+                <fx:include fx:id="pane5" source="EntryPane5.fxml"/>
             </Pane>
-
-            <Button fx:id="save" layoutX="632.0" layoutY="464.0" mnemonicParsing="false" onAction="#saveSession" prefHeight="61.0" prefWidth="127.0" text="SAVE" />
+            <Button fx:id="save" layoutX="632.0" layoutY="464.0" mnemonicParsing="false" onAction="#printExcercise" prefHeight="61.0" prefWidth="127.0" text="SAVE" />
+         <TextArea fx:id="comments" layoutX="30.0" layoutY="464.0" prefHeight="61.0" prefWidth="529.0" />
         </AnchorPane>
          <ImageView fitHeight="150.0" fitWidth="517.0" layoutX="293.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
              <image>

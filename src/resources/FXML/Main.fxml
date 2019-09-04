@@ -18,7 +18,7 @@
             <tabs>
                 <Tab text="Entry">
                     <content>
-                        <fx:include fx:id="entry" source="EntryTab.fxml"/>
+                        <fx:include fx:id="entryTab" source="EntryTab.fxml"/>
                     </content>
                 </Tab>
             </tabs>

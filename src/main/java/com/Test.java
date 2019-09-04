@@ -4,7 +4,6 @@ import com.Model.Excercise;
 import com.Model.TrainingSession;
 import com.Model.TrainingSet;
 import com.Utils.ExcerciseQueries;
-import com.Utils.ResultFilters;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,7 +20,7 @@ public class Test {
     public static void main(String[] args) {
 
         ExcerciseQueries excerciseQueries = new ExcerciseQueries();
-        ResultFilters filter = new ResultFilters();
+        //ResultFilters filter = new ResultFilters();
 
         Excercise ex1 = new Excercise();
         TrainingSession session = new TrainingSession();

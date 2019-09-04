@@ -1,52 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="49.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-           <TextField fx:id="e1Mark" layoutX="24.0" layoutY="12.0" prefHeight="25.0" prefWidth="60.0">
-               <font>
-                   <Font name="Verdana" size="12.0" />
-               </font>
-           </TextField>
-           <TextField fx:id="e1Name" layoutX="84.0" layoutY="12.0" prefHeight="25.0" prefWidth="115.0">
-               <font>
-                   <Font name="Verdana" size="12.0" />
-               </font>
-           </TextField>
-           <TextField fx:id="e1RepMark" layoutX="199.0" layoutY="12.0" prefHeight="25.0" prefWidth="33.0">
-               <font>
-                   <Font name="Verdana" size="12.0" />
-               </font>
-           </TextField>
-           <TextField fx:id="e1Sets" layoutX="232.0" layoutY="12.0" prefHeight="25.0" prefWidth="320.0">
-               <font>
-                   <Font name="Verdana" size="12.0" />
-               </font>
-           </TextField>
-           <TextField fx:id="e1Reps" layoutX="587.0" layoutY="12.0" prefHeight="25.0" prefWidth="60.0">
-               <font>
-                   <Font name="Verdana" size="12.0" />
-               </font>
-           </TextField>
-           <TextField fx:id="e1Load" layoutX="647.0" layoutY="12.0" prefHeight="25.0" prefWidth="60.0">
-               <font>
-                   <Font name="Verdana" size="12.0" />
-               </font>
-           </TextField>
-           <Button fx:id="addSetE1" layoutX="707.0" layoutY="12.0" mnemonicParsing="false" onAction="#addSetE1" prefHeight="25.0" prefWidth="25.0" text="+">
-               <font>
-                   <Font name="Verdana Bold" size="12.0" />
-               </font>
-           </Button>
-           <Button fx:id="removeSetE1" layoutX="732.0" layoutY="12.0" mnemonicParsing="false" onAction="#removeSetE1" prefHeight="25.0" prefWidth="25.0" text="-">
-               <font>
-                   <Font name="Verdana Bold" size="12.0" />
-               </font>
-           </Button>
-   </children>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="49.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GUI.SessionEntry.EP1">
+    <children>
+        <TextField fx:id="liftMark" layoutX="24.0" layoutY="12.0" prefHeight="25.0" prefWidth="60.0">
+            <font>
+                <Font name="Verdana" size="12.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="exName" layoutX="84.0" layoutY="12.0" prefHeight="25.0" prefWidth="115.0">
+            <font>
+                <Font name="Verdana" size="12.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="exSets" layoutX="199.0" layoutY="12.0" prefHeight="25.0" prefWidth="353.0">
+            <font>
+                <Font name="Verdana" size="12.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="exReps" layoutX="587.0" layoutY="12.0" prefHeight="25.0" prefWidth="60.0">
+            <font>
+                <Font name="Verdana" size="12.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="exLoad" layoutX="647.0" layoutY="12.0" prefHeight="25.0" prefWidth="60.0">
+            <font>
+                <Font name="Verdana" size="12.0" />
+            </font>
+        </TextField>
+        <Button fx:id="addSet" layoutX="707.0" layoutY="12.0" mnemonicParsing="false" onAction="#addSet" prefHeight="25.0" prefWidth="25.0" text="+">
+            <font>
+                <Font name="Verdana Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="removeSet" layoutX="732.0" layoutY="12.0" mnemonicParsing="false" onAction="#removeSet" prefHeight="25.0" prefWidth="25.0" text="-">
+            <font>
+                <Font name="Verdana Bold" size="12.0" />
+            </font>
+        </Button>
+      <Button fx:id="addEX" layoutX="552.0" layoutY="12.0" mnemonicParsing="false" onAction="#setEx1" prefHeight="25.0" prefWidth="25.0" text="+">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Button>
+    </children>
 </AnchorPane>

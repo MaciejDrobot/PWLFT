@@ -5,7 +5,7 @@ import com.Model.Excercise;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ResultFilters {
+public abstract class ResultFilters {
 
     public List<Excercise> filteredExcercises(List<Excercise> list, String name){
         List<Excercise> filtered = list.stream()
