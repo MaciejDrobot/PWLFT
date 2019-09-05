@@ -16,7 +16,6 @@ import java.util.List;
 
 public class BenchController {
 
-
     @FXML
     private DatePicker firstDate = new DatePicker();
     @FXML

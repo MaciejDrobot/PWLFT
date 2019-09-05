@@ -34,12 +34,12 @@
                    <Font name="Verdana" size="12.0" />
                </font>
            </TextField>
-           <Button fx:id="addSetE2" layoutX="707.0" layoutY="12.0" mnemonicParsing="false" onAction="#addSetE2" prefHeight="25.0" prefWidth="25.0" text="+">
+           <Button fx:id="addSetE2" layoutX="707.0" layoutY="12.0" mnemonicParsing="false"  prefHeight="25.0" prefWidth="25.0" text="+">
                <font>
                    <Font name="Verdana Bold" size="12.0" />
                </font>
            </Button>
-           <Button fx:id="removeSetE2" layoutX="732.0" layoutY="12.0" mnemonicParsing="false" onAction="#removeSetE2" prefHeight="25.0" prefWidth="25.0" text="-">
+           <Button fx:id="removeSetE2" layoutX="732.0" layoutY="12.0" mnemonicParsing="false"  prefHeight="25.0" prefWidth="25.0" text="-">
                <font>
                    <Font name="Verdana Bold" size="12.0" />
                </font>

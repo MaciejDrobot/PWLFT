@@ -8,24 +8,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane fx:id="BenchController" prefHeight="600.0" prefWidth="800.0"
+<AnchorPane fx:id="Entry" prefHeight="600.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.GUI.SessionEntry.SessionEntryController">
     <children>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="805.0" style="-fx-background-color: white;">
             <DatePicker fx:id="date" layoutX="30.0" layoutY="120.0" />
             <Pane layoutX="8.0" layoutY="165.0" prefHeight="49.0" prefWidth="784.0">
-                <fx:include fx:id="pane1" source="EntryPane.fxml" />
+                    <fx:include fx:id="pane1" source="EntryPane.fxml" />
             </Pane>
-            <!--<Pane layoutX="8.0" layoutY="220.0">
+            <Pane layoutX="8.0" layoutY="220.0">
                 <fx:include fx:id="pane2" source="EntryPane2.fxml" />
-            </Pane>-->
+            </Pane>
             <Pane layoutX="8.0" layoutY="275.0">
                 <fx:include fx:id="pane3" source="EntryPane3.fxml" />
             </Pane>
-            <!--<Pane layoutX="8.0" layoutY="325.0">
+            <Pane layoutX="8.0" layoutY="325.0">
                 <fx:include fx:id="pane4" source="EntryPane4.fxml" />
-            </Pane>-->
+            </Pane>
             <Pane layoutX="8.0" layoutY="380.0">
                 <fx:include fx:id="pane5" source="EntryPane5.fxml"/>
             </Pane>

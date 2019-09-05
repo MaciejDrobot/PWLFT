@@ -2,6 +2,7 @@ package com.GUI.SessionEntry;
 
 import com.Model.Excercise;
 import com.Model.TrainingSession;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -17,18 +18,20 @@ public class SessionEntryController {
 
     private TrainingSession session = new TrainingSession();
 
+    @FXML
+    private DatePicker date = new DatePicker();
+    @FXML
+    private Button save = new Button();
+    @FXML
+    private TextArea comments = new TextArea();
 
-    public DatePicker date = new DatePicker();
-
-    public Button save = new Button();
-    public TextArea comments = new TextArea();
+    @FXML
+    private EP1 pane1Controller;
 
 
     public void printExcercise() {
-        //Singleton.getInstance().getEx1().setName();
+        pane1Controller.setEx1();
         comments.setText(Singleton.getInstance().getList().get(0).toString());
-
-
     }
 
 
@@ -69,6 +72,6 @@ public class SessionEntryController {
         entityManagerFactory.close();
     }
 
-
 }
+
 

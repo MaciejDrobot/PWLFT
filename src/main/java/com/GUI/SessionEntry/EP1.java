@@ -3,16 +3,12 @@ package com.GUI.SessionEntry;
 import com.Model.Excercise;
 import com.Model.TrainingSet;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import lombok.Data;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 @Data
-public class EP1 extends EntryPaneController implements Initializable {
+public class EP1 extends EntryPaneController  {
 
     @FXML
     public TextField liftMark = new TextField();
@@ -54,13 +50,5 @@ public class EP1 extends EntryPaneController implements Initializable {
         excercise.setName(exName.getText());
         excercise.addSessionStats(excercise, excercise.getSetsRecord());
         Singleton.getInstance().getList().add(excercise);
-
-    }
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-
     }
 }
