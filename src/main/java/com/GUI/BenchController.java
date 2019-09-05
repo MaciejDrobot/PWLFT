@@ -1,6 +1,6 @@
 package com.GUI;
 
-import com.Model.Excercise;
+import com.Model.Exercise;
 import com.Utils.ExcerciseQueries;
 import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
@@ -42,27 +42,27 @@ public class BenchController {
 
 
     public void addDataChart(){
-        List<Excercise> list = downloadData("Bench");
+        List<Exercise> list = downloadData("Bench");
 
         XYChart.Series<String, Double> series = new XYChart.Series<String, Double>();
         series.setName("One RM");
-        for (Excercise e : list){
+        for (Exercise e : list){
             series.getData().add(new XYChart.Data<String, Double>(e.getDate().toString(), e.getOneRM()));
         }
         benchChart.getData().add(series);
 
         XYChart.Series<String, Double> series2 = new XYChart.Series<String, Double>();
         series.setName("Volume");
-        for (Excercise e : list){
+        for (Exercise e : list){
             series2.getData().add(new XYChart.Data<String, Double>(e.getDate().toString(), e.getVolume()));
         }
         benchChart.getData().add(series2);
     }
 
 
-    public static List<Excercise> downloadData (String excercise){
+    public static List<Exercise> downloadData (String excercise){
         ExcerciseQueries eq = new ExcerciseQueries();
-        List<Excercise> downloadedPrimary = eq.getPrimaryExcercises();
+        List<Exercise> downloadedPrimary = eq.getPrimaryExcercises();
         return eq.filteredExcercises(downloadedPrimary, excercise);
     }
 

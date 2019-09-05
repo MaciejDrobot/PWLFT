@@ -49,7 +49,7 @@ public class SessionStats {
         return rs.substring(0, rs.length() - 3);
     }
 
-    public static void addSessionStats(Excercise ex, List<TrainingSet> sets) {
+    public static void addSessionStats(Exercise ex, List<TrainingSet> sets) {
         ex.setOneRM(ex.calculateOneRM(sets));
         ex.setVolume(ex.calculateVolume(sets));
         ex.setTotalReps(ex.calculateTotalReps(sets));

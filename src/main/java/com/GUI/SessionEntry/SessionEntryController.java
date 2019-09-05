@@ -1,6 +1,6 @@
 package com.GUI.SessionEntry;
 
-import com.Model.Excercise;
+import com.Model.Exercise;
 import com.Model.TrainingSession;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -26,12 +26,15 @@ public class SessionEntryController {
     private TextArea comments = new TextArea();
 
     @FXML
-    private EP1 pane1Controller;
+    private EntryPaneController pane1Controller;
+    @FXML
+    private EntryPaneController pane2Controller;
 
 
-    public void printExcercise() {
-        pane1Controller.setEx1();
-        comments.setText(Singleton.getInstance().getList().get(0).toString());
+    public void printExercise() {
+        pane1Controller.addExercise();
+        pane2Controller.addExercise();
+        comments.setText(Singleton.getInstance().getList().toString());
     }
 
 
@@ -41,7 +44,7 @@ public class SessionEntryController {
         //session.getExcerciseList().add(ex1);
         //session.getExcerciseList().add(ex2);
 
-        for (Excercise e : session.getExcerciseList()) {
+        for (Exercise e : session.getExerciseList()) {
             if (e.getName() != null) {
                 e.setDate(date.getValue());
                 e.setTrainingSession(session);
@@ -62,7 +65,7 @@ public class SessionEntryController {
         tx.begin();
 
         createSession();
-        for (Excercise e : session.getExcerciseList()) {
+        for (Exercise e : session.getExerciseList()) {
             entityManager.persist(e);
         }
         entityManager.persist(session);

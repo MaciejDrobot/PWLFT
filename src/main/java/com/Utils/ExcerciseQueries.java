@@ -1,6 +1,6 @@
 package com.Utils;
 
-import com.Model.Excercise;
+import com.Model.Exercise;
 import com.Model.TrainingSession;
 
 import javax.persistence.*;
@@ -25,7 +25,7 @@ public class ExcerciseQueries {
         sessionQ = query.getResultList();
         try {
             //todo remove/replace printing after tests
-            System.out.println(sessionQ.get(3).getExcerciseList().get(1).toString());
+            System.out.println(sessionQ.get(3).getExerciseList().get(1).toString());
         } catch (NoResultException ex) {
             ex.printStackTrace();
         } finally {
@@ -33,10 +33,10 @@ public class ExcerciseQueries {
         }
     }
 
-    public static List<Excercise> getPrimaryExcercises() {
+    public static List<Exercise> getPrimaryExcercises() {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
-        List<Excercise> sessionQ;
-        TypedQuery<Excercise> query = entityManager.createNamedQuery("primaryExcercises", Excercise.class);
+        List<Exercise> sessionQ;
+        TypedQuery<Exercise> query = entityManager.createNamedQuery("primaryExcercises", Exercise.class);
         query.setParameter("liftMark", "PRM");
         sessionQ = query.getResultList();
         try {
@@ -49,10 +49,10 @@ public class ExcerciseQueries {
         return sessionQ;
     }
 
-    public List<Excercise> getPrimaryExcercisesBetweenDates(LocalDate date1, LocalDate date2) {
+    public List<Exercise> getPrimaryExcercisesBetweenDates(LocalDate date1, LocalDate date2) {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
-        List<Excercise> sessionQ;
-        TypedQuery<Excercise> query = entityManager.createNamedQuery("primaryExcercisesBetweenDates", Excercise.class);
+        List<Exercise> sessionQ;
+        TypedQuery<Exercise> query = entityManager.createNamedQuery("primaryExcercisesBetweenDates", Exercise.class);
         query.setParameter("liftMark", "PRM");
         query.setParameter("firstDate", date1);
         query.setParameter("secondDate", date2);
@@ -77,7 +77,7 @@ public class ExcerciseQueries {
         sessionQ = query.getSingleResult();
         try {
             //todo remove/replace printing after tests
-            System.out.println(sessionQ.getExcerciseList().get(0).toString());
+            System.out.println(sessionQ.getExerciseList().get(0).toString());
         } catch (NoResultException ex) {
             ex.printStackTrace();
         } finally {
@@ -85,8 +85,8 @@ public class ExcerciseQueries {
         }
     }
 
-    public List<Excercise> filteredExcercises(List<Excercise> list, String name){
-        List<Excercise> filtered = list.stream()
+    public List<Exercise> filteredExcercises(List<Exercise> list, String name){
+        List<Exercise> filtered = list.stream()
                 .filter(e -> e.getName().contains(name))
                 .collect(Collectors.toList());
         return filtered;

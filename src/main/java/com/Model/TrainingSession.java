@@ -21,13 +21,14 @@ public class TrainingSession {
     @Id
     @Column(name = "session_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long sessioniId;
+    //todo sessionId changed (previous->sessioniId), check if not causing errors
+    private long sessionId;
 
     @Column(name = "date")
     private LocalDate date;
 
     @OneToMany(mappedBy = "trainingSession")
-    private List<Excercise> excerciseList = new ArrayList<>();
+    private List<Exercise> exerciseList = new ArrayList<>();
 
     public TrainingSession() {
 

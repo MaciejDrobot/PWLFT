@@ -1,43 +1,56 @@
 package com.GUI.SessionEntry;
 
-import com.Model.Excercise;
+import com.Model.Exercise;
 import com.Model.TrainingSet;
-import com.Utils.ResultFilters;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import lombok.Data;
 
 @Data
-public class EntryPaneController extends ResultFilters {
+public class EntryPaneController {
 
-    Excercise ex = new Excercise();
+    @FXML
+    private TextField liftMark = new TextField();
+    @FXML
+    private TextField exName = new TextField();
+    @FXML
+    private TextField exSets = new TextField();
+    @FXML
+    private TextField exReps = new TextField();
+    @FXML
+    private TextField exLoad = new TextField();
+    @FXML
+    private Button addSet = new Button();
+    @FXML
+    private Button removeSet = new Button();
 
-    public TextField Mark = new TextField();
-    public TextField Name = new TextField();
-    public TextField Sets = new TextField();
-    public TextField Reps = new TextField();
-    public TextField Load = new TextField();
-    public Button addSet;
-    public Button removeSet;
-
+    public Exercise exercise = new Exercise();
 
     public void addSet() {
-        Integer reps = new Integer(Reps.getText()).intValue();
-        Double load = new Double(Load.getText()).doubleValue();
+        Integer reps = new Integer(exReps.getText()).intValue();
+        Double load = new Double(exLoad.getText()).doubleValue();
         TrainingSet set = new TrainingSet(reps, load);
-        ex.getSetsRecord().add(set);
-        Sets.setText(ex.recordToString(ex.getSetsRecord()));
+        exercise.getSetsRecord().add(set);
+        exSets.setText(exercise.recordToString(exercise.getSetsRecord()));
         removeSet.setDisable(false);
     }
 
     public void removeSet() {
-        if (ex.getSetsRecord().size() > 1) {
-            ex.getSetsRecord().remove((ex.getSetsRecord().size() - 1));
-            Sets.setText(ex.recordToString(ex.getSetsRecord()));
+        if (exercise.getSetsRecord().size() > 1) {
+            exercise.getSetsRecord().remove((exercise.getSetsRecord().size() - 1));
+            exSets.setText(exercise.recordToString(exercise.getSetsRecord()));
         } else {
-            ex.getSetsRecord().remove(0);
-            Sets.setText("");
+            exercise.getSetsRecord().remove(0);
+            exSets.setText("");
             removeSet.setDisable(true);
         }
+    }
+
+    public void addExercise(){
+        exercise.setLiftMark(liftMark.getText());
+        exercise.setName(exName.getText());
+        exercise.addSessionStats(exercise, exercise.getSetsRecord());
+        Singleton.getInstance().getList().add(exercise);
     }
 }

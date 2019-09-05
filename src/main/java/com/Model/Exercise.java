@@ -10,10 +10,10 @@ import java.util.List;
 @Data
 
 @Entity
-@NamedQuery(name = "primaryExcercises",query = "FROM Excercise E WHERE E.liftMark = :liftMark")
-@NamedQuery(name = "primaryExcercisesBetweenDates",query = "FROM Excercise E WHERE E.liftMark = :liftMark AND E.date BETWEEN :firstDate AND :secondDate")
-@Table(name = "excercise")
-public class Excercise extends SessionStats {
+@NamedQuery(name = "primaryExercises",query = "FROM Exercise E WHERE E.liftMark = :liftMark")
+@NamedQuery(name = "primaryExercisesBetweenDates",query = "FROM Exercise E WHERE E.liftMark = :liftMark AND E.date BETWEEN :firstDate AND :secondDate")
+@Table(name = "exercise")
+public class Exercise extends SessionStats {
 
     @Id
     @Column(name = "id")

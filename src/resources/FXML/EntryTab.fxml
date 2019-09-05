@@ -18,18 +18,18 @@
                     <fx:include fx:id="pane1" source="EntryPane.fxml" />
             </Pane>
             <Pane layoutX="8.0" layoutY="220.0">
-                <fx:include fx:id="pane2" source="EntryPane2.fxml" />
+                <fx:include fx:id="pane2" source="EntryPane.fxml" />
             </Pane>
             <Pane layoutX="8.0" layoutY="275.0">
-                <fx:include fx:id="pane3" source="EntryPane3.fxml" />
+               <fx:include fx:id="pane3" source="EntryPane.fxml" />
             </Pane>
             <Pane layoutX="8.0" layoutY="325.0">
-                <fx:include fx:id="pane4" source="EntryPane4.fxml" />
+                <fx:include fx:id="pane4" source="EntryPane.fxml" />
             </Pane>
             <Pane layoutX="8.0" layoutY="380.0">
-                <fx:include fx:id="pane5" source="EntryPane5.fxml"/>
+                <fx:include fx:id="pane5" source="EntryPane.fxml"/>
             </Pane>
-            <Button fx:id="save" layoutX="632.0" layoutY="464.0" mnemonicParsing="false" onAction="#printExcercise" prefHeight="61.0" prefWidth="127.0" text="SAVE" />
+            <Button fx:id="save" layoutX="632.0" layoutY="464.0" mnemonicParsing="false" onAction="#printExercise" prefHeight="61.0" prefWidth="127.0" text="SAVE" />
          <TextArea fx:id="comments" layoutX="30.0" layoutY="464.0" prefHeight="61.0" prefWidth="529.0" />
         </AnchorPane>
          <ImageView fitHeight="150.0" fitWidth="517.0" layoutX="293.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
