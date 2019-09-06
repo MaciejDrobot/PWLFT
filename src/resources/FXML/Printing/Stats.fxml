@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="60.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField layoutX="4.0" layoutY="4.0" prefHeight="25.0" prefWidth="112.0" text="One Rep Max:" />
+      <TextField layoutX="116.0" layoutY="4.0" prefHeight="25.0" prefWidth="112.0" />
+      <TextField layoutX="228.0" layoutY="4.0" prefHeight="25.0" prefWidth="112.0" text="Volume:" />
+      <TextField layoutX="340.0" layoutY="4.0" prefHeight="25.0" prefWidth="112.0" />
+      <TextField layoutX="4.0" layoutY="30.0" prefHeight="25.0" prefWidth="112.0" text="Intensity:" />
+      <TextField layoutX="116.0" layoutY="30.0" prefHeight="25.0" prefWidth="112.0" />
+      <TextField layoutX="228.0" layoutY="30.0" prefHeight="25.0" prefWidth="112.0" text="Work sets:" />
+      <TextField layoutX="340.0" layoutY="30.0" prefHeight="25.0" prefWidth="112.0" />
+   </children>
+</AnchorPane>

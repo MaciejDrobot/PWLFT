@@ -4,21 +4,26 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GUI.Printing.PrintingController">
     <children>
-       <TabPane prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+       <TabPane prefHeight="650.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
                 <Tab text="Entry">
                     <content>
-                        <fx:include fx:id="Entry" source="EntryTab.fxml"/>
+                        <fx:include fx:id="Entry" source="Entry/EntryTab.fxml" />
                     </content>
                 </Tab>
 
                 <Tab text="Bench">
                     <content>
-                        <fx:include fx:id="bench" source="Bench.fxml"/>
+                        <fx:include fx:id="bench" source="Bench.fxml" />
                     </content>
                 </Tab>
-        </TabPane>
+         <Tab text="Printing" fx:id="printing">
+             <content>
+               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+           </content>
+         </Tab>
+       </TabPane>
     </children>
 </AnchorPane>
