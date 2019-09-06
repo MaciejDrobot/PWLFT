@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import lombok.Data;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -24,47 +23,70 @@ public class SessionEntryController {
     private Button save = new Button();
     @FXML
     private TextArea comments = new TextArea();
-
     @FXML
     private EntryPaneController pane1Controller;
     @FXML
     private EntryPaneController pane2Controller;
+    @FXML
+    private EntryPaneController pane3Controller;
+    @FXML
+    private EntryPaneController pane4Controller;
+    @FXML
+    private EntryPaneController pane5Controller;
 
 
-    public void printExercise() {
-        pane1Controller.addExercise();
-        pane2Controller.addExercise();
-        comments.setText(Singleton.getInstance().getList().toString());
+    public void initialize(){
+        pane1Controller.getLiftMark().setValue("PRM");
+        pane2Controller.getLiftMark().setValue("SEC");
+        comments.setText("Comments");
+
+        //temporary fill
+        pane1Controller.getExName().setText("Bench");
+        pane1Controller.getExReps().setText("5");
+        pane1Controller.getExLoad().setText("80");
+        pane2Controller.getExName().setText("RDL");
+        pane2Controller.getExReps().setText("5");
+        pane2Controller.getExLoad().setText("100");
+        pane3Controller.getExName().setText("Press");
+        pane3Controller.getExReps().setText("5");
+        pane3Controller.getExLoad().setText("60");
     }
 
+    public void addExercise() {
+        pane1Controller.addExercise();
+        pane2Controller.addExercise();
+        pane3Controller.addExercise();
+        pane4Controller.addExercise();
+        pane5Controller.addExercise();
+    }
 
-    //todo simplify method
     public void createSession() {
         session.setDate(date.getValue());
-        //session.getExcerciseList().add(ex1);
-        //session.getExcerciseList().add(ex2);
-
+        session.setComments(comments.getText());
+        for (Exercise e : Singleton.getInstance().getList()){
+            if(e.getSetsRecord().isEmpty() == false){
+                session.getExerciseList().add(e);
+            }
+        }
         for (Exercise e : session.getExerciseList()) {
-            if (e.getName() != null) {
                 e.setDate(date.getValue());
                 e.setTrainingSession(session);
             }
         }
-    }
 
     public void saveSession() {
         EntityManagerFactory entityManagerFactory
                 = Persistence.createEntityManagerFactory("PWLFT");
-
         EntityManager entityManager
                 = entityManagerFactory.createEntityManager();
-
         System.out.println("Is ok: " + entityManager.isOpen());
 
         EntityTransaction tx = entityManager.getTransaction();
         tx.begin();
 
+        addExercise();
         createSession();
+
         for (Exercise e : session.getExerciseList()) {
             entityManager.persist(e);
         }
@@ -75,6 +97,7 @@ public class SessionEntryController {
         entityManagerFactory.close();
     }
 
+    //todo add session clearing method
 }
 
 

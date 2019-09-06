@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class ExcerciseQueries {
+public class ExerciseQueries {
 
     private static EntityManagerFactory ENTITY_MANAGER_FACTORY =
             Persistence.createEntityManagerFactory("PWLFT");
@@ -33,10 +33,10 @@ public class ExcerciseQueries {
         }
     }
 
-    public static List<Exercise> getPrimaryExcercises() {
+    public static List<Exercise> getPrimaryExercises() {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         List<Exercise> sessionQ;
-        TypedQuery<Exercise> query = entityManager.createNamedQuery("primaryExcercises", Exercise.class);
+        TypedQuery<Exercise> query = entityManager.createNamedQuery("primaryExercises", Exercise.class);
         query.setParameter("liftMark", "PRM");
         sessionQ = query.getResultList();
         try {
@@ -49,10 +49,10 @@ public class ExcerciseQueries {
         return sessionQ;
     }
 
-    public List<Exercise> getPrimaryExcercisesBetweenDates(LocalDate date1, LocalDate date2) {
+    public List<Exercise> getPrimaryExercisesBetweenDates(LocalDate date1, LocalDate date2) {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
         List<Exercise> sessionQ;
-        TypedQuery<Exercise> query = entityManager.createNamedQuery("primaryExcercisesBetweenDates", Exercise.class);
+        TypedQuery<Exercise> query = entityManager.createNamedQuery("primaryExercisesBetweenDates", Exercise.class);
         query.setParameter("liftMark", "PRM");
         query.setParameter("firstDate", date1);
         query.setParameter("secondDate", date2);
@@ -85,7 +85,7 @@ public class ExcerciseQueries {
         }
     }
 
-    public List<Exercise> filteredExcercises(List<Exercise> list, String name){
+    public List<Exercise> filteredExercises(List<Exercise> list, String name){
         List<Exercise> filtered = list.stream()
                 .filter(e -> e.getName().contains(name))
                 .collect(Collectors.toList());

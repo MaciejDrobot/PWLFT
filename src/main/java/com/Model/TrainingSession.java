@@ -10,10 +10,10 @@ import java.util.List;
 @Data
 
 @Entity
-@NamedQuery(name = "singleSession",query = "FROM TrainingSession T WHERE T.date = :singleDate")
+@NamedQuery(name = "singleSession", query = "FROM TrainingSession T WHERE T.date = :singleDate")
 
 //todo test this query
-@NamedQuery(name = "betweenDates",query = "FROM TrainingSession T WHERE T.date BETWEEN :firstDate AND :secondDate")
+@NamedQuery(name = "betweenDates", query = "FROM TrainingSession T WHERE T.date BETWEEN :firstDate AND :secondDate")
 
 @Table(name = "training_session")
 public class TrainingSession {
@@ -21,7 +21,6 @@ public class TrainingSession {
     @Id
     @Column(name = "session_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    //todo sessionId changed (previous->sessioniId), check if not causing errors
     private long sessionId;
 
     @Column(name = "date")
@@ -29,6 +28,9 @@ public class TrainingSession {
 
     @OneToMany(mappedBy = "trainingSession")
     private List<Exercise> exerciseList = new ArrayList<>();
+
+    @Column(name = "comments")
+    private String comments;
 
     public TrainingSession() {
 

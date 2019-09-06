@@ -1,7 +1,7 @@
 package com.GUI;
 
 import com.Model.Exercise;
-import com.Utils.ExcerciseQueries;
+import com.Utils.ExerciseQueries;
 import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
@@ -38,7 +38,7 @@ public class BenchController {
     //LocalDate date1 = LocalDate.now().minusDays(35);
     //LocalDate date2 = LocalDate.now();
 
-    private ExcerciseQueries eq;
+    private ExerciseQueries eq;
 
 
     public void addDataChart(){
@@ -60,10 +60,10 @@ public class BenchController {
     }
 
 
-    public static List<Exercise> downloadData (String excercise){
-        ExcerciseQueries eq = new ExcerciseQueries();
-        List<Exercise> downloadedPrimary = eq.getPrimaryExcercises();
-        return eq.filteredExcercises(downloadedPrimary, excercise);
+    public static List<Exercise> downloadData (String exercise){
+        ExerciseQueries eq = new ExerciseQueries();
+        List<Exercise> downloadedPrimary = eq.getPrimaryExercises();
+        return eq.filteredExercises(downloadedPrimary, exercise);
     }
 
 }

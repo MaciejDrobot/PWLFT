@@ -4,6 +4,7 @@ import com.Model.Exercise;
 import com.Model.TrainingSet;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import lombok.Data;
 
@@ -11,7 +12,7 @@ import lombok.Data;
 public class EntryPaneController {
 
     @FXML
-    private TextField liftMark = new TextField();
+    private ChoiceBox<String> liftMark = new ChoiceBox<>();
     @FXML
     private TextField exName = new TextField();
     @FXML
@@ -26,6 +27,11 @@ public class EntryPaneController {
     private Button removeSet = new Button();
 
     public Exercise exercise = new Exercise();
+
+    public void initialize(){
+        liftMark.getItems().addAll("PRM", "SEC", "ACC");
+        liftMark.setValue("ACC");
+    }
 
     public void addSet() {
         Integer reps = new Integer(exReps.getText()).intValue();
@@ -48,9 +54,11 @@ public class EntryPaneController {
     }
 
     public void addExercise(){
-        exercise.setLiftMark(liftMark.getText());
+        exercise.setLiftMark(liftMark.getValue());
         exercise.setName(exName.getText());
-        exercise.addSessionStats(exercise, exercise.getSetsRecord());
+        if(exercise.getSetsRecord().isEmpty() == false){
+            exercise.addSessionStats(exercise, exercise.getSetsRecord());
+        }
         Singleton.getInstance().getList().add(exercise);
     }
 }
