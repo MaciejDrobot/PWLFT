@@ -1,9 +1,11 @@
 package com.GUI.Printing;
 
 import com.Model.TrainingSession;
+import com.Utils.AllData;
 import com.Utils.ExerciseQueries;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import lombok.Data;
@@ -19,23 +21,25 @@ public class PrintingController {
     public Button print;
     public AnchorPane root;
     public TextField text;
+    public DatePicker date;
 
     private int layoutY = 50;
     private ExerciseQueries eq;
     private List<TrainingSession> allSessions = new ArrayList<>();
 
-//    public void initialize() {
-//
-//        allSessions = eq.getAllData();
-//    }
+    public void initialize() {
+        allSessions = AllData.getInstance().getAllData();
+    }
 
 
-    //todo - methods: initialize - get data; filtering + run button; print session;
+    //todo - methods: filtering + run button; print session;
 
     public void printStats(){
-        allSessions = eq.getAllData();
-        text.setText(allSessions.get(0).toString());
+        TrainingSession session = eq.getSession(allSessions, date.getValue());
+        text.setText(session.toString());
     }
+
+
 
 
 

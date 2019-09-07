@@ -110,6 +110,15 @@ public class ExerciseQueries {
         return filtered;
     }
 
+    public static TrainingSession getSession(List<TrainingSession> list, LocalDate date){
+        List<TrainingSession> filtered = list.stream()
+                .filter(s -> s.getDate().equals(date))
+                .collect(Collectors.toList());
+        return filtered.get(0);
+    }
+
+
+
 
 
 
