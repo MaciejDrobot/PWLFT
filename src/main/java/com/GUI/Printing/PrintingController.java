@@ -1,5 +1,7 @@
 package com.GUI.Printing;
 
+import com.Model.TrainingSession;
+import com.Utils.ExerciseQueries;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -7,6 +9,8 @@ import javafx.scene.layout.AnchorPane;
 import lombok.Data;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class PrintingController {
@@ -17,8 +21,21 @@ public class PrintingController {
     public TextField text;
 
     private int layoutY = 50;
+    private ExerciseQueries eq;
+    private List<TrainingSession> allSessions = new ArrayList<>();
+
+//    public void initialize() {
+//
+//        allSessions = eq.getAllData();
+//    }
+
 
     //todo - methods: initialize - get data; filtering + run button; print session;
+
+    public void printStats(){
+        allSessions = eq.getAllData();
+        text.setText(allSessions.get(0).toString());
+    }
 
 
 
@@ -57,7 +74,5 @@ public class PrintingController {
             System.out.println("Unable to load");
         }
     }
-
-
 
 }

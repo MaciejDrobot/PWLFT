@@ -10,10 +10,12 @@ import java.util.List;
 @Data
 
 @Entity
-@NamedQuery(name = "singleSession", query = "FROM TrainingSession T WHERE T.date = :singleDate")
+@NamedQueries({
+        @NamedQuery(name = "singleSession", query = "FROM TrainingSession T WHERE T.date = :singleDate"),
+        @NamedQuery(name = "getAllData", query = "SELECT s FROM TrainingSession s"),
+        @NamedQuery(name = "betweenDates", query = "FROM TrainingSession T WHERE T.date BETWEEN :firstDate AND :secondDate")
+})
 
-//todo test this query
-@NamedQuery(name = "betweenDates", query = "FROM TrainingSession T WHERE T.date BETWEEN :firstDate AND :secondDate")
 
 @Table(name = "training_session")
 public class TrainingSession {
@@ -26,7 +28,7 @@ public class TrainingSession {
     @Column(name = "date")
     private LocalDate date;
 
-    @OneToMany(mappedBy = "trainingSession")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "trainingSession", cascade = CascadeType.ALL)
     private List<Exercise> exerciseList = new ArrayList<>();
 
     @Column(name = "comments")

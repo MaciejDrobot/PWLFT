@@ -67,7 +67,7 @@ public class ExerciseQueries {
         return sessionQ;
     }
 
-    public static void getSingleSession(LocalDate date) {
+    public static TrainingSession getSingleSession(LocalDate date) {
         EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
 
         TrainingSession sessionQ;
@@ -76,14 +76,32 @@ public class ExerciseQueries {
         query.setParameter("singleDate", date);
         sessionQ = query.getSingleResult();
         try {
-            //todo remove/replace printing after tests
-            System.out.println(sessionQ.getExerciseList().get(0).toString());
+            return sessionQ;
         } catch (NoResultException ex) {
             ex.printStackTrace();
         } finally {
             entityManager.close();
         }
+        return sessionQ;
     }
+
+    public static List<TrainingSession> getAllData() {
+        EntityManager entityManager = ENTITY_MANAGER_FACTORY.createEntityManager();
+        List<TrainingSession> sessionQ;
+        TypedQuery<TrainingSession> query = entityManager.createNamedQuery("getAllData", TrainingSession.class);
+        sessionQ = query.getResultList();
+        try {
+            return sessionQ;
+        } catch (NoResultException ex) {
+            ex.printStackTrace();
+        } finally {
+            entityManager.close();
+        }
+        return sessionQ;
+    }
+
+
+
 
     public List<Exercise> filteredExercises(List<Exercise> list, String name){
         List<Exercise> filtered = list.stream()
@@ -91,6 +109,9 @@ public class ExerciseQueries {
                 .collect(Collectors.toList());
         return filtered;
     }
+
+
+
 
 
     //todo add removal and amending queries/methods
