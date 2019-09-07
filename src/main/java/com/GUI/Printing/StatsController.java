@@ -1,4 +1,5 @@
 package com.GUI.Printing;
 
-public class StatsController {
+public class StatsController  {
+
 }

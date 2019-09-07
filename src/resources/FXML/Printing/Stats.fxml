@@ -3,7 +3,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="60.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="60.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="com.GUI.Printing.StatsController">
    <children>
       <TextField layoutX="4.0" layoutY="4.0" prefHeight="25.0" prefWidth="112.0" text="One Rep Max:" />
       <TextField layoutX="116.0" layoutY="4.0" prefHeight="25.0" prefWidth="112.0" />
