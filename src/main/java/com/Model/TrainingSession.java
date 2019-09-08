@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "singleSession", query = "FROM TrainingSession T WHERE T.date = :singleDate"),
-        @NamedQuery(name = "getAllData", query = "SELECT s FROM TrainingSession s"),
+        @NamedQuery(name = "getAllSessions", query = "SELECT s FROM TrainingSession s"),
         @NamedQuery(name = "betweenDates", query = "FROM TrainingSession T WHERE T.date BETWEEN :firstDate AND :secondDate")
 })
 

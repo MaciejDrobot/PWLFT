@@ -1,8 +1,8 @@
 package com.GUI.Printing;
 
 import com.Model.TrainingSession;
-import com.Utils.AllData;
-import com.Utils.ExerciseQueries;
+import com.Utils.AllSessions;
+import com.Utils.Filters;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -24,32 +24,33 @@ public class PrintingController {
     public DatePicker date;
 
     private int layoutY = 50;
-    private ExerciseQueries eq;
     private List<TrainingSession> allSessions = new ArrayList<>();
 
     public void initialize() {
-        allSessions = AllData.getInstance().getAllData();
+        allSessions = AllSessions.getInstance().getAllSessions();
     }
 
+    //todo - methods: print session;
 
-    //todo - methods: filtering + run button; print session;
-
-    public void printStats(){
-        TrainingSession session = eq.getSession(allSessions, date.getValue());
+    public void printStats() {
+        TrainingSession session = Filters.getSessionByDate(allSessions, date.getValue());
         text.setText(session.toString());
+
     }
 
-
-
+    public void printTrainingSession() {
+        TrainingSession session = Filters.getSessionByDate(allSessions, date.getValue());
+        //text.setText(session.getExerciseList().get(0).getName());
+        printBasic(layoutY);
+    }
 
 
     public void printBasic(int layoutY) {
         FXMLLoader loader = new FXMLLoader();
         try {
-            AnchorPane stats = loader.load(getClass().getResource("/FXML/Printing/BasicInfo.fxml"));
-            stats.setLayoutY(layoutY);
-            root.getChildren().add(stats);
-
+            AnchorPane basic = loader.load(getClass().getResource("/FXML/Printing/BasicInfo.fxml"));
+            basic.setLayoutY(layoutY);
+            root.getChildren().add(basic);
         } catch (IOException iex) {
             System.out.println("Unable to load");
         }
@@ -67,14 +68,14 @@ public class PrintingController {
         }
     }
 
-    public void printSeparator(int layoutY){
+    public void printSeparator(int layoutY) {
         FXMLLoader loader = new FXMLLoader();
         try {
             AnchorPane stats = loader.load(getClass().getResource("/FXML/Printing/Separator.fxml"));
             stats.setLayoutY(layoutY);
             root.getChildren().add(stats);
 
-        } catch(IOException iex) {
+        } catch (IOException iex) {
             System.out.println("Unable to load");
         }
     }

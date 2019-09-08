@@ -13,10 +13,9 @@
                         <fx:include fx:id="Entry" source="Entry/EntryTab.fxml" />
                     </content>
                 </Tab>
-
                 <Tab text="Bench">
                     <content>
-                        <fx:include fx:id="bench" source="Bench.fxml" />
+                        <fx:include  source="Graphs/GraphsAllinOne.fxml" />
                     </content>
                 </Tab>
          <Tab text="Printing" fx:id="printing">

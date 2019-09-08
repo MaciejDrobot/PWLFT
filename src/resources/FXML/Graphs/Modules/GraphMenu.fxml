@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="162.0" prefWidth="338.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Button fx:id="printChart" layoutX="257.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Button" />
+        <DatePicker fx:id="firstDate" layoutY="2.0" prefHeight="25.0" prefWidth="115.0" />
+        <DatePicker fx:id="secondDate" layoutX="132.0" layoutY="2.0" prefHeight="25.0" prefWidth="115.0" />
+        <RadioButton layoutY="51.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="115.0" text="RadioButton" />
+        <RadioButton layoutX="115.0" layoutY="51.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="115.0" text="RadioButton" />
+    </children>
+
+</AnchorPane>

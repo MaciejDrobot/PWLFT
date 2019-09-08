@@ -49,6 +49,11 @@ public class SessionStats {
         return rs.substring(0, rs.length() - 3);
     }
 
+    public static String getRepsMark(List<TrainingSet> list){
+
+        return "x";
+    }
+
     public static void addSessionStats(Exercise ex, List<TrainingSet> sets) {
         ex.setOneRM(ex.calculateOneRM(sets));
         ex.setVolume(ex.calculateVolume(sets));
