@@ -10,6 +10,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
+import javafx.scene.text.TextFlow;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class GraphsAllinOneController {
     public DatePicker secondDate = new DatePicker();
     public RadioButton x5 = new RadioButton();
     public RadioButton x3 = new RadioButton();
+    public TextFlow textFlow = new TextFlow();
 
     @FXML
     CategoryAxis xAxis = new CategoryAxis();
@@ -37,11 +39,14 @@ public class GraphsAllinOneController {
     
     private List<Exercise> allExercises = new ArrayList<>();
 
+
+
     public void initialize() {
         allExercises = AllPrimary.getInstance().getAllPrimary();
         OneRM.setLegendVisible(false);
+        OneRM.setAnimated(false);
         Volume.setLegendVisible(false);
-
+        Volume.setAnimated(false);
     }
 
     //todo add filtering methods

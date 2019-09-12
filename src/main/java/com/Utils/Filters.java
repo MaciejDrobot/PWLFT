@@ -23,5 +23,11 @@ public class Filters {
         return filtered.get(0);
     }
 
+    public static List<Exercise> getExercisesBetweenDates(List<Exercise> list, LocalDate date1, LocalDate date2){
+        List<Exercise> filtered = list;
+
+        return filtered;
+    }
+
 
 }

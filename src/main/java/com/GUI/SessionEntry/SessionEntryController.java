@@ -37,6 +37,8 @@ public class SessionEntryController {
 
 
     public void initialize(){
+
+
         pane1Controller.getLiftMark().setValue("PRM");
         pane2Controller.getLiftMark().setValue("SEC");
         comments.setText("Comments");
@@ -93,9 +95,11 @@ public class SessionEntryController {
         }
         entityManager.persist(session);
 
+        entityManager.flush();
         tx.commit();
-        entityManager.close();
-        entityManagerFactory.close();
+
+        //entityManager.close();
+        //entityManagerFactory.close();
     }
 
     //todo add session clearing method

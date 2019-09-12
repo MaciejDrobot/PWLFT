@@ -20,7 +20,7 @@
                 </Tab>
          <Tab text="Printing" fx:id="printing">
              <content>
-               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               <fx:include source="Printing/PrintingPane.fxml"/>
            </content>
          </Tab>
        </TabPane>

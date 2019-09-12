@@ -49,12 +49,8 @@ public class SessionStats {
         return rs.substring(0, rs.length() - 3);
     }
 
-    public static String getRepsMark(List<TrainingSet> list){
-
-        return "x";
-    }
-
     public static void addSessionStats(Exercise ex, List<TrainingSet> sets) {
+        ex.setRepetitionMark("x" + ex.getSetsRecord().get(0).getRep());
         ex.setOneRM(ex.calculateOneRM(sets));
         ex.setVolume(ex.calculateVolume(sets));
         ex.setTotalReps(ex.calculateTotalReps(sets));
