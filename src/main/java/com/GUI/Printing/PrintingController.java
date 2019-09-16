@@ -17,15 +17,12 @@ import java.util.List;
 @Data
 public class PrintingController {
 
-
     public Button print;
     public AnchorPane root;
     public TextFlow textField;
     public DatePicker date;
 
-    private int layoutY = 50;
     private List<TrainingSession> allSessions = new ArrayList<>();
-    private List<Exercise> allExercises = new ArrayList<>();
 
     public void initialize() {
         allSessions = AllSessions.getInstance().getAllSessions();
@@ -36,15 +33,11 @@ public class PrintingController {
         TrainingSession session = Filters.getSessionByDate(allSessions, date.getValue());
         textField.getChildren().clear();
         for (Exercise e : session.getExerciseList()) {
-            Text t1 = new Text();
-            t1.setText(e.getName());
-            textField.getChildren().add(t1);
+            Text t1 = new Text(e.getName());
             Text t2 = new Text("\n");
-            textField.getChildren().add(t2);
             Text t3 = new Text(e.getSetsRecordAsString());
-            textField.getChildren().add(t3);
             Text t4 = new Text("\n");
-            textField.getChildren().add(t4);
+            textField.getChildren().addAll(t1, t2, t3, t4);
         }
     }
 }

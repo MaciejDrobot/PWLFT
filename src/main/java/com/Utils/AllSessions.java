@@ -16,4 +16,7 @@ public class AllSessions {
         return instance;
     }
 
+    public List<TrainingSession> getAllSessions() {
+        return allSessions;
+    }
 }
