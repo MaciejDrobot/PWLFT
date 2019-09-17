@@ -40,16 +40,16 @@ public class SessionEntryController {
 
 
         pane1Controller.getLiftMark().setValue("PRM");
-        pane2Controller.getLiftMark().setValue("SEC");
+        pane2Controller.getLiftMark().setValue("PRM");
         comments.setText("Comments");
 
         //temporary fill
         pane1Controller.getExName().setText("Bench");
         pane1Controller.getExReps().setText("5");
         pane1Controller.getExLoad().setText("80");
-        pane2Controller.getExName().setText("RDL");
+        pane2Controller.getExName().setText("Deadlift");
         pane2Controller.getExReps().setText("5");
-        pane2Controller.getExLoad().setText("100");
+        pane2Controller.getExLoad().setText("140");
         pane3Controller.getExName().setText("Press");
         pane3Controller.getExReps().setText("5");
         pane3Controller.getExLoad().setText("60");

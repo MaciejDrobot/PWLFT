@@ -15,7 +15,7 @@
                 </Tab>
                 <Tab text="Bench">
                     <content>
-                        <fx:include  source="Graphs/GraphsAllinOne.fxml" />
+                        <fx:include  source="Graphs/Graphs.fxml" />
                     </content>
                 </Tab>
          <Tab text="Printing" fx:id="printing">
