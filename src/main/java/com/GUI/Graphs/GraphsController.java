@@ -8,10 +8,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +18,8 @@ public class GraphsController {
     public Button printChart = new Button();
     public DatePicker firstDate = new DatePicker();
     public DatePicker secondDate = new DatePicker();
-    public RadioButton x5 = new RadioButton("x5");
-    public RadioButton x3 = new RadioButton("x3");
+    public CheckBox reps5 = new CheckBox();
+    public CheckBox reps3 = new CheckBox();
     public ChoiceBox<String> exercise = new ChoiceBox();
 
     @FXML
@@ -35,10 +32,6 @@ public class GraphsController {
     private LineChart Volume = new LineChart(xAxis, yAxis);
 
     private List<Exercise> allExercises = new ArrayList<>();
-    String repsX3 = x3.getText();
-    String repsX5 = x5.getText();
-
-
 
     public void initialize() {
         allExercises = AllPrimary.getInstance().getAllPrimary();
@@ -49,11 +42,20 @@ public class GraphsController {
         Volume.setAnimated(false);
     }
 
-    //todo add filtering methods
     public List<Exercise> filterExercises(){
+
+        String x3 = new String();
+        String x5 = new String();
+        if (reps3.isSelected()){
+            x3 = "reps3";
+        }
+        if (reps5.isSelected()){
+            x5 = "reps5";
+        }
+
         List<Exercise> list = Filters.getExercisesBetweenDates(allExercises, firstDate.getValue(), secondDate.getValue());
         list = Filters.getExerciseByName(list, exercise.getValue());
-        list = Filters.filterRepsMark(list, repsX3, repsX5);
+        list = Filters.filterRepsMark(list, x3, x5);
         list = Filters.sortExercisesByDate(list);
         return list;
     }
@@ -78,6 +80,5 @@ public class GraphsController {
         }
         Volume.getData().add(series2);
     }
-
 }
 

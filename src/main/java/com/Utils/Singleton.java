@@ -1,4 +1,4 @@
-package com.GUI.SessionEntry;
+package com.Utils;
 
 import com.Model.Exercise;
 import lombok.Data;

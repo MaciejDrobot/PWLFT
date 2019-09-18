@@ -4,34 +4,41 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="graphs" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GUI.Graphs.GraphsController">
+<AnchorPane fx:id="graphs" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.999-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GUI.Graphs.GraphsController">
     <children>
-        <Button fx:id="printChart" layoutX="808.0" layoutY="135.0" mnemonicParsing="false" onAction="#addDataChart" prefHeight="25.0" prefWidth="159.0" text="Show" />
-        <DatePicker fx:id="firstDate" layoutX="550.0" layoutY="135.0" prefHeight="25.0" prefWidth="115.0" />
-        <DatePicker fx:id="secondDate" layoutX="678.0" layoutY="135.0" prefHeight="25.0" prefWidth="115.0" />
-        <LineChart fx:id="OneRM" layoutX="14.0" layoutY="180.0" prefHeight="230.0" prefWidth="973.0">
+        <AnchorPane layoutX="94.0" layoutY="43.0" prefHeight="25.0" prefWidth="883.0">
+            <children>
+                <Button fx:id="printChart" layoutX="717.0" mnemonicParsing="false" onAction="#addDataChart"
+                        prefHeight="25.0" prefWidth="159.0" text="Show"/>
+                <DatePicker fx:id="firstDate" layoutX="459.0" prefHeight="25.0" prefWidth="115.0"/>
+                <DatePicker fx:id="secondDate" layoutX="589.0" prefHeight="25.0" prefWidth="115.0"/>
+                <CheckBox layoutX="306.0" layoutY="4.0" mnemonicParsing="false" text="x 3" fx:id="reps3"/>
+                <CheckBox layoutX="359.0" layoutY="4.0" mnemonicParsing="false" text="x 5" fx:id="reps5"/>
+                <ChoiceBox fx:id="exercise" layoutX="124.0" prefWidth="150.0"/>
+            </children>
+        </AnchorPane>
+        <LineChart fx:id="OneRM" layoutX="14.0" layoutY="89.0" prefHeight="275.0" prefWidth="973.0">
             <xAxis>
-                <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+                <CategoryAxis side="BOTTOM" fx:id="xAxis"/>
             </xAxis>
             <yAxis>
-                <NumberAxis fx:id="yAxis" side="LEFT" />
+                <NumberAxis fx:id="yAxis" side="LEFT"/>
             </yAxis>
         </LineChart>
-        <LineChart fx:id="Volume" layoutX="13.0" layoutY="406.0" prefHeight="230.0" prefWidth="975.0">
+        <LineChart fx:id="Volume" layoutX="13.0" layoutY="361.0" prefHeight="275.0" prefWidth="975.0">
             <xAxis>
-                <CategoryAxis side="BOTTOM" fx:id="xAxis1" />
+                <CategoryAxis side="BOTTOM" fx:id="xAxis1"/>
             </xAxis>
             <yAxis>
-                <NumberAxis fx:id="yAxis1" side="LEFT" />
+                <NumberAxis fx:id="yAxis1" side="LEFT"/>
             </yAxis>
         </LineChart>
-      <RadioButton layoutX="442.0" layoutY="135.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="39.0" text="x 3" fx:id="x3" />
-      <RadioButton layoutX="488.0" layoutY="135.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="39.0" text="x 5" fx:id="x5" />
-      <ChoiceBox fx:id="exercise" layoutX="270.0" layoutY="135.0" prefWidth="150.0" />
     </children>
 </AnchorPane>

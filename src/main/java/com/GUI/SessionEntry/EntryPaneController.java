@@ -2,6 +2,7 @@ package com.GUI.SessionEntry;
 
 import com.Model.Exercise;
 import com.Model.TrainingSet;
+import com.Utils.Singleton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;

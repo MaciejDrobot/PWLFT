@@ -10,13 +10,13 @@ import java.util.stream.Collectors;
 
 public class Filters {
 
-    public static List<Exercise> getExerciseByName(List<Exercise> list, String name){
+    public static List<Exercise> getExerciseByName(List<Exercise> list, String name) {
         return list.stream()
                 .filter(e -> e.getName().contains(name))
                 .collect(Collectors.toList());
     }
 
-    public static TrainingSession getSessionByDate(List<TrainingSession> list, LocalDate date){
+    public static TrainingSession getSessionByDate(List<TrainingSession> list, LocalDate date) {
         List<TrainingSession> filtered = list.stream()
                 .filter(s -> s.getDate().equals(date))
                 .collect(Collectors.toList());
@@ -30,7 +30,7 @@ public class Filters {
                 .collect(Collectors.toList());
     }
 
-    public static List<Exercise> getExercisesBetweenDates(List<Exercise> list, LocalDate start, LocalDate end){
+    public static List<Exercise> getExercisesBetweenDates(List<Exercise> list, LocalDate start, LocalDate end) {
         return list.stream()
                 .filter(e -> e.getDate().isAfter(start.minusDays(1))
                         && e.getDate().isBefore(end.plusDays(1)))
@@ -45,7 +45,7 @@ public class Filters {
 
     public static List<Exercise> filterRepsMark(List<Exercise> list, String x3, String x5) {
         return list.stream()
-                .filter(e -> e.getRepetitionMark().contains(x3) || e.getRepetitionMark().contains(x5))
+                .filter(e -> e.getRepetitionMark().equals(x3) || e.getRepetitionMark().equals(x5))
                 .collect(Collectors.toList());
     }
 
