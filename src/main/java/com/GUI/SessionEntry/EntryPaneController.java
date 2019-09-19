@@ -2,7 +2,7 @@ package com.GUI.SessionEntry;
 
 import com.Model.Exercise;
 import com.Model.TrainingSet;
-import com.Utils.Singleton;
+import com.Utils.SessionEntrySingleton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -60,6 +60,6 @@ public class EntryPaneController {
         if(exercise.getSetsRecord().isEmpty() == false){
             exercise.addSessionStats(exercise, exercise.getSetsRecord());
         }
-        Singleton.getInstance().getList().add(exercise);
+        SessionEntrySingleton.getInstance().getList().add(exercise);
     }
 }

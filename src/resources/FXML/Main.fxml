@@ -13,12 +13,12 @@
                         <fx:include fx:id="Entry" source="Entry/EntryTab.fxml" />
                     </content>
                 </Tab>
-                <Tab text="Bench">
+                <Tab text="Stats">
                     <content>
                         <fx:include  source="Graphs/Graphs.fxml" />
                     </content>
                 </Tab>
-         <Tab text="Printing" fx:id="printing">
+         <Tab text="Print" fx:id="printing">
              <content>
                <fx:include source="Printing/PrintingPane.fxml"/>
            </content>

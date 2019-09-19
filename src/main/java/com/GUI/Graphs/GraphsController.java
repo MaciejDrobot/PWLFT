@@ -21,6 +21,7 @@ public class GraphsController {
     public CheckBox reps5 = new CheckBox();
     public CheckBox reps3 = new CheckBox();
     public ChoiceBox<String> exercise = new ChoiceBox();
+    public Label label = new Label();
 
     @FXML
     CategoryAxis xAxis = new CategoryAxis();
@@ -43,16 +44,15 @@ public class GraphsController {
     }
 
     public List<Exercise> filterExercises(){
-
+        //allExercises = AllPrimary.getInstance().getAllPrimary();
         String x3 = new String();
         String x5 = new String();
         if (reps3.isSelected()){
-            x3 = "reps3";
+            x3 = "x3";
         }
         if (reps5.isSelected()){
-            x5 = "reps5";
+            x5 = "x5";
         }
-
         List<Exercise> list = Filters.getExercisesBetweenDates(allExercises, firstDate.getValue(), secondDate.getValue());
         list = Filters.getExerciseByName(list, exercise.getValue());
         list = Filters.filterRepsMark(list, x3, x5);
@@ -63,6 +63,7 @@ public class GraphsController {
     public void addDataChart(){
 
         List<Exercise> list = filterExercises();
+        label.setText(exercise.getValue());
 
         OneRM.getData().clear();
         XYChart.Series<String, Double> series = new XYChart.Series();

@@ -30,8 +30,8 @@ public class PrintingController {
 
     //todo - methods: print session;
     public void printTrainingSession() {
-        TrainingSession session = Filters.getSessionByDate(allSessions, date.getValue());
         textField.getChildren().clear();
+        TrainingSession session = Filters.getSessionByDate(allSessions, date.getValue());
         for (Exercise e : session.getExerciseList()) {
             Text t1 = new Text(e.getName());
             Text t2 = new Text("\n");

@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class Singleton {
+public class SessionEntrySingleton {
 
     private List<Exercise> list = new ArrayList<>();
 
-    private final static Singleton instance = new Singleton();
+    private final static SessionEntrySingleton instance = new SessionEntrySingleton();
 
-    public static Singleton getInstance() {
+    public static SessionEntrySingleton getInstance() {
         return instance;
     }
 }

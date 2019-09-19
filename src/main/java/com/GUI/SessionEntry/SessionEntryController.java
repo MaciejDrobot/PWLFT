@@ -2,7 +2,7 @@ package com.GUI.SessionEntry;
 
 import com.Model.Exercise;
 import com.Model.TrainingSession;
-import com.Utils.Singleton;
+import com.Utils.SessionEntrySingleton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -44,7 +44,7 @@ public class SessionEntryController {
         pane2Controller.getLiftMark().setValue("PRM");
         comments.setText("Comments");
 
-        //temporary fill
+        //temporary fill TODO remove after testing
         pane1Controller.getExName().setText("Bench");
         pane1Controller.getExReps().setText("5");
         pane1Controller.getExLoad().setText("80");
@@ -67,7 +67,7 @@ public class SessionEntryController {
     public void createSession() {
         session.setDate(date.getValue());
         session.setComments(comments.getText());
-        for (Exercise e : Singleton.getInstance().getList()){
+        for (Exercise e : SessionEntrySingleton.getInstance().getList()){
             if(e.getSetsRecord().isEmpty() == false){
                 session.getExerciseList().add(e);
             }
