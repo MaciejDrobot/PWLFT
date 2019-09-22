@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GUI.Printing.PrintingController">
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.printing.PrintingController">
     <children>
         <Button fx:id="print" layoutX="216.0" layoutY="22.0" mnemonicParsing="false" onAction="#printTrainingSession" text="Print" />
         <DatePicker fx:id="date" layoutX="32.0" layoutY="22.0" />

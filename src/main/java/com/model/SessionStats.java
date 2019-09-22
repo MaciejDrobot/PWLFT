@@ -1,4 +1,4 @@
-package com.Model;
+package com.model;
 
 import java.util.List;
 import java.util.stream.Collectors;

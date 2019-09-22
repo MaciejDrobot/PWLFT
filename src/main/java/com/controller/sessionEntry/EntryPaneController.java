@@ -1,8 +1,8 @@
-package com.GUI.SessionEntry;
+package com.controller.sessionEntry;
 
-import com.Model.Exercise;
-import com.Model.TrainingSet;
-import com.Utils.SessionEntrySingleton;
+import com.model.Exercise;
+import com.model.TrainingSet;
+import com.utils.SessionEntrySingleton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;

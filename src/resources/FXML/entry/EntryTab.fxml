@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Entry" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GUI.SessionEntry.SessionEntryController">
+<AnchorPane fx:id="Entry" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.sessionEntry.SessionEntryController">
     <children>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: white;">
             <DatePicker fx:id="date" layoutX="792.0" layoutY="160.0" />
@@ -36,7 +36,7 @@
          <TextArea fx:id="comments" layoutX="30.0" layoutY="515.0" prefHeight="61.0" prefWidth="702.0" />
             <ImageView fitHeight="140.0" fitWidth="505.0" layoutX="371.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="@../../Graphics/PWLFT%202.png" />
+                    <Image url="@../../graphics/PWLFT%202.png" />
                 </image>
             </ImageView>
          <Label layoutX="24.0" layoutY="28.0" prefHeight="124.0" prefWidth="374.0" text="PWLFT">

@@ -1,8 +1,8 @@
-package com.GUI.Graphs;
+package com.controller.stats;
 
-import com.Model.Exercise;
-import com.Utils.AllPrimary;
-import com.Utils.Filters;
+import com.model.Exercise;
+import com.utils.AllPrimary;
+import com.utils.Filters;
 import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
@@ -13,7 +13,7 @@ import javafx.scene.control.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphsController {
+public class StatsController {
 
     public Button printChart = new Button();
     public DatePicker firstDate = new DatePicker();

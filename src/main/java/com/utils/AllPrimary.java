@@ -1,6 +1,6 @@
-package com.Utils;
+package com.utils;
 
-import com.Model.Exercise;
+import com.model.Exercise;
 import lombok.Data;
 
 import java.util.List;

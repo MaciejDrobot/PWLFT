@@ -1,4 +1,4 @@
-package com.GUI;
+package com;
 
 
 import javafx.fxml.FXMLLoader;

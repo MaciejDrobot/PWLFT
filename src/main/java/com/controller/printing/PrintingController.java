@@ -1,9 +1,9 @@
-package com.GUI.Printing;
+package com.controller.printing;
 
-import com.Model.Exercise;
-import com.Model.TrainingSession;
-import com.Utils.AllSessions;
-import com.Utils.Filters;
+import com.model.Exercise;
+import com.model.TrainingSession;
+import com.utils.AllSessions;
+import com.utils.Filters;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
@@ -28,7 +28,7 @@ public class PrintingController {
         allSessions = AllSessions.getInstance().getAllSessions();
     }
 
-    //todo - methods: print session;
+    //todo - methods: print trainingSession;
     public void printTrainingSession() {
         textField.getChildren().clear();
         TrainingSession session = Filters.getSessionByDate(allSessions, date.getValue());

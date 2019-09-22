@@ -5,22 +5,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GUI.Printing.PrintingController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.printing.PrintingController">
     <children>
        <TabPane prefHeight="650.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
                 <Tab text="Entry">
                     <content>
-                        <fx:include fx:id="Entry" source="Entry/EntryTab.fxml" />
+                        <fx:include fx:id="Entry" source="entry/EntryTab.fxml" />
                     </content>
                 </Tab>
                 <Tab text="Stats">
                     <content>
-                        <fx:include  source="Graphs/Graphs.fxml" />
+                        <fx:include  source="Stats.fxml" />
                     </content>
                 </Tab>
          <Tab text="Print" fx:id="printing">
              <content>
-               <fx:include source="Printing/PrintingPane.fxml"/>
+               <fx:include source="PrintingPane.fxml"/>
            </content>
          </Tab>
        </TabPane>

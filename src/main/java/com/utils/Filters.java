@@ -1,7 +1,7 @@
-package com.Utils;
+package com.utils;
 
-import com.Model.Exercise;
-import com.Model.TrainingSession;
+import com.model.Exercise;
+import com.model.TrainingSession;
 
 import java.time.LocalDate;
 import java.util.Comparator;

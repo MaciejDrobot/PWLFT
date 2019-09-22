@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="graphs" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.GUI.Graphs.GraphsController">
+<AnchorPane fx:id="graphs" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.stats.StatsController">
     <children>
         <AnchorPane layoutX="112.0" layoutY="52.0" prefHeight="25.0" prefWidth="830.0">
             <children>

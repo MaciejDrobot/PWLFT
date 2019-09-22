@@ -1,6 +1,6 @@
-package com.Utils;
+package com.utils;
 
-import com.Model.TrainingSession;
+import com.model.TrainingSession;
 import lombok.Data;
 
 import java.util.List;
